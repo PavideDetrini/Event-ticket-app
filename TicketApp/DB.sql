@@ -50,6 +50,16 @@ CREATE TABLE Biglietti
     FOREIGN KEY (Evento) REFERENCES Eventi (ID_Evento)
 );
 
+CREATE TABLE Supporto
+(
+    ID INT(11) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    Nome      VARCHAR(255) NOT NULL,
+    Cognome   VARCHAR(255) NOT NULL,
+    Email     VARCHAR(255) NOT NULL,
+    Messaggio     VARCHAR(255) NOT NULL
+
+);
+
 INSERT INTO CategoriaEventi (Descrizione_Categoria)
 VALUES ('Concerti'),
        ('Sport'),

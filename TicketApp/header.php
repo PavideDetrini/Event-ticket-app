@@ -1,5 +1,6 @@
 <?php
     require_once "DB_connection.php";
+    session_start();
 
     if (!empty($pdo)) {
         $query = "SELECT Descrizione_Categoria  FROM CategoriaEventi;";
@@ -20,7 +21,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" >
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="style.css" rel="stylesheet" type="text/css">
-    <title>HOME</title>
+    <title>EVENTINOW</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -28,7 +29,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">HOME</a>
+                    <a href="index.php" class="nav-link">HOME</a>
                 </li>
                 <?php
                 foreach ($categorie as $row){
@@ -49,18 +50,40 @@
                         <button class="btn btn-outline-primary" type="submit">Search</button>
                     </form>
                 </li>
-                <li class="nav-item">
-                    <a href="registration.php" class="nav-link">
-                        <i class="bi bi-person"></i>
-                        REGISTRAZIONE
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="login.php" class="nav-link">
-                        <i class="bi bi-box-arrow-in-right"></i>
-                        LOGIN
-                    </a>
-                </li>
+                <?php
+                    if(isset($_SESSION['user'])){
+                ?>
+                        <li class="nav-item">
+                            <a href="account.php" class="nav-link">
+                                <i class="bi bi-person-fill"></i>
+                                ACCOUNT
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="logout.php" class="nav-link">
+                                <i class="bi bi-box-arrow-in-left"></i>
+                                LOGOUT
+                            </a>
+                        </li>
+                <?php
+                    }
+                    else{
+                ?>
+                        <li class="nav-item">
+                            <a href="registration.php" class="nav-link">
+                                <i class="bi bi-person"></i>
+                                REGISTRAZIONE
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="login.php" class="nav-link">
+                                <i class="bi bi-box-arrow-in-right"></i>
+                                LOGIN
+                            </a>
+                        </li>
+                <?php
+                    }
+                ?>
             </ul>
         </div>
     </div>

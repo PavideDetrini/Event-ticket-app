@@ -17,18 +17,6 @@
         }
     }
 ?>
-
-
-<!DOCTYPE>
-<html>
-
-<head>
-    <title></title>
-</head>
-
-<body>
-
-
 <h1><?= $var?></h1>
 <?php
 
@@ -43,9 +31,6 @@ foreach ($eventi as $evento){
 </div>
 <?php
 }
+
+include_once "footer.php";
 ?>
-
-
-
-</body>
-</html>

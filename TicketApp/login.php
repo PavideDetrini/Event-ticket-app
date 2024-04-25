@@ -1,7 +1,7 @@
 <?php
     //DA METTERE NELLA PAGINA CARRELLO COSI' L'UTENTE DEVE LOGGARSI PRIMA DI ACQUISTARE
     /*session_start();
-    if(!isset($_SESSION['user'])){
+    if(!isset($_SESSION[]['user'])){
         header("Location: login.php");
     }*/
 ?>
@@ -62,6 +62,8 @@
                     if(password_verify($password, $userData[0]['Password'])){
                         session_start();
                         $_SESSION['user'] = "yes";
+                        $_SESSION['username'] = $userData[0]['Username'];
+                        $_SESSION['email'] = $userData[0]['Email'];
                         header("Location: index.php");
                         die();
                     }
