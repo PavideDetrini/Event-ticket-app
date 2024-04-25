@@ -42,10 +42,10 @@ if (!empty($_GET)) {
                 </div>
                 <div>
                     <form action="acquisto.php" method="post" class="mb-2">
-                        <div class="form-group">
-                            <input class="w-25" required id="nPosti" type="number" name="acquisti[<?= $_GET["id"] ?>]" max="<?= $resultsEventi[0]["Numero_Posti"] ?>" min="1" value="1">
+                        <div class="form-group d-flex align-items-center">
+                            <input class="w-25 me-2" required id="nPosti" type="number" name="acquisti[<?= $_GET["id"] ?>]" max="<?= $resultsEventi[0]["Numero_Posti_Disponibili"] ?>" min="1" value="1">
+                            <button type="submit" class="btn btn-primary">Acquista ora</button>
                         </div>
-                        <button type="submit" class="btn btn-primary">Acquista ora</button>
                     </form>
                     <form method="post">
                         <button type="submit" name="carrello" class="btn btn-primary">Aggiungi al carrello</button>
