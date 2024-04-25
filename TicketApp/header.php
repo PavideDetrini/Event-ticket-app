@@ -58,6 +58,12 @@ if (!empty($pdo)) {
                 if(isset($_SESSION['user'])){
                     ?>
                     <li class="nav-item">
+                        <a href="carrello.php" class="nav-link">
+                            <i class="bi bi-cart"></i>
+                            CARRELLO
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="account.php" class="nav-link">
                             <i class="bi bi-person-fill"></i>
                             ACCOUNT
@@ -73,6 +79,12 @@ if (!empty($pdo)) {
                 }
                 else{
                     ?>
+                    <li class="nav-item">
+                        <a href="carrello.php" class="nav-link">
+                            <i class="bi bi-cart"></i>
+                            CARRELLO
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a href="registration.php" class="nav-link">
                             <i class="bi bi-person"></i>
