@@ -56,7 +56,7 @@ $var = htmlspecialchars($_GET['categoria']);
             <div class="card mb-3">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="<?= $evento['Immagine'] ?>" class="img-fluid rounded-start fixed-image" alt="<?= $evento['Descrizione'] ?>">
+                        <img src="<?= $evento['Immagine'] ?>" class="img-fluid rounded-start fixed-image imgCategoria" alt="<?= $evento['Descrizione'] ?>">
                     </div>
                     <div class="col-md-8 d-flex align-items-center">
                         <div class="card-body d-flex justify-content-between align-items-center w-100">
