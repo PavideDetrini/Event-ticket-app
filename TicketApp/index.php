@@ -1,30 +1,36 @@
 <?php
-require "db_connection.php";
-if (!empty($pdo)) {
-    $str = "select Descrizione_Categoria
-from CategoriaEventi";
+    require "db_connection.php";
+    session_start();
 
-$str2="select Descrizione,Descrizione_Categoria,Prezzo
-from Eventi
-join CategoriaEventi on Eventi.Categoria = CategoriaEventi.ID_Categoria
-where CategoriaEventi.Descrizione_Categoria like 'Concerti'"
-;
-    $statement = $pdo -> query($str);
-    $statement2 = $pdo -> query($str2);
-    if (!$statement){
-        echo "ERROR";
+    $arrayCategorie = array();
+    if(!isset($_SESSION['user'])){
+        //HOMEPAGE NORMALE
+        if (!empty($pdo)) {
+            $query = "SELECT Descrizione_Categoria  FROM CategoriaEventi;";
+            $statement = $pdo -> query($query);
+
+            if (!$statement){
+                echo "ERROR";
+            }
+            else{
+                $categorie = $statement -> fetchAll();
+                foreach ($categorie as $value){
+                    foreach ($value as $item){
+                        array_push($arrayCategorie, $item);
+                        $query2="SELECT Eventi.Descrizione, CategoriaEventi.Descrizione_Categoria, Eventi.Prezzo
+                           FROM Eventi JOIN CategoriaEventi ON Eventi.Categoria = CategoriaEventi.ID_Categoria
+                           WHERE CategoriaEventi.Descrizione_Categoria LIKE '$item';";
+
+                        $statement2 = $pdo -> query($query2);
+                        $results = $statement2 -> fetchAll();
+                    }
+                }
+            }
+        }
     }
-    else if (!$statement2){
-         echo "ERROR";
-     }
-
-     else{
-        $results = $statement -> fetchAll();
-        $results2 = $statement2 -> fetchAll();
+    else{
+        //HOMEPAGE CONSIGLIATA
     }
-
-
-}
 
 ?>
 
@@ -33,9 +39,7 @@ where CategoriaEventi.Descrizione_Categoria like 'Concerti'"
 
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" >
-    <title>
-        HOME
-    </title>
+    <title>HOME</title>
 </head>
 <body>
 
@@ -51,19 +55,23 @@ where CategoriaEventi.Descrizione_Categoria like 'Concerti'"
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <?php
-                foreach ($results as $row){
+                foreach ($categorie as $row){
+                    foreach ($row as $descrizione){
                     ?>
 
                         <button type="button" class="btn btn-success">
 
                             <a href="#" class="link-light">
-                                <?= $row["Descrizione_Categoria"] ?>
+                                <?= $descrizione?>
                             </a>
 
                         </button>
 
 
-                    <?php } ?>
+                <?php
+                    }
+                }
+                ?>
 
             </ul>
             <form class="d-flex">
@@ -75,21 +83,30 @@ where CategoriaEventi.Descrizione_Categoria like 'Concerti'"
 </nav>
 
 <?php
+    foreach ($arrayCategorie as $value){
+            array_push($arrayCategorie, $item);
+            $query3="SELECT Eventi.Descrizione, Eventi.Prezzo
+                               FROM Eventi JOIN CategoriaEventi ON Eventi.Categoria = CategoriaEventi.ID_Categoria
+                               WHERE CategoriaEventi.Descrizione_Categoria LIKE '$value';";
 
-foreach ($results2 as $row2){
-
-    ?>
-
-<p>
-    <?= $row2["Descrizione"] ?>
-</p>
-
-<?php } ?>
-
+            $statement3 = $pdo -> query($query3);
+            $eventi = $statement3 -> fetchAll();
+?>
+        <h1><?= $value?></h1>
+<?php
+            foreach ($eventi as $evento){
+?>
+                <div>
+                    <img src="images\default.jpg">
+                    <p><?= $evento['Descrizione'] . ' ' .  $evento['Prezzo']?></p>
+                </div>
+<?php
+            }
+    }
+?>
 
 </body>
 </html>
-
 
 
 
