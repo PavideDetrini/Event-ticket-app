@@ -20,15 +20,15 @@ if (!empty($pdo)) {
     <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
     </section>
 
-    <section class="">
+    <section>
         <div class="container text-center text-md-start mt-5">
             <div class="row mt-3">
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     <h6 class="text-uppercase fw-bold mb-4">
-                        EventiNow
+                        WaveTickets
                     </h6>
                     <p>
-                        Esplora un mondo di emozionanti esperienze su EventiNow, il tuo destino per eventi indimenticabili.<br>
+                        Scatena l'onda di divertimento con WaveTickets!<br>
                         Scopri una vasta gamma di attività, concerti, mostre e molto altro ancora, tutto a portata di clic.<br>
                         Affidati a noi per trasformare ogni momento in un'occasione memorabile.
                     </p>

@@ -1,24 +1,40 @@
 html, body{
     height: 100%;
     background-color: white;
+    color: black;
+}
+.logo {
+    max-width: 120px;
+    height: auto;
+}
+
+.navbar .nav-link {
+    color: white;
+}
+
+.nav-link:hover{
+    color: black;
 }
 
 .navbar {
-    background-color: white;
+    background-color: #FD8034;
+    color: white;
     border-bottom: 1px solid white;
 }
 
 .navbar .nav-item {
-    color: #343a40;
+    color: white;
     padding: 0.5rem 1rem;
 }
 
 .navbar .nav-item.home {
     font-weight: bold;
+    color: white;
 }
 
 .navbar .form-control {
     border-color: #ced4da;
+    color: black;
 }
 
 .container-account {
@@ -38,19 +54,16 @@ html, body{
 .info-item {
     margin-bottom: 15px;
 }
-.btn {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: #fff;
+.btn-outline-light {
     text-decoration: none;
-    border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
-.btn:hover {
-    background-color: #0056b3;
+
+.btn-outline-light:hover {
+    background-color: white;
+    color: #FD8034;
 }
 
 /*  STILE PAGINA HELP.PHP  */
@@ -76,6 +89,7 @@ p {
 }
 .form-group {
     margin-bottom: 20px;
+    color: white;
 }
 .form-group label {
     display: block;
@@ -178,6 +192,7 @@ input {
     width: 100%;
     object-fit: cover;
     border: black 2px solid;
+    border-radius: 10px;
 }
 
 .imgCategoria {

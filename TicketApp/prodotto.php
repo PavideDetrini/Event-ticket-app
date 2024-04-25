@@ -47,10 +47,10 @@ if(!empty($_GET)){
                             <label for="nPosti">Inserire biglietti che si vogliono acquistare</label>
                             <input id="nPosti" class="form-control w-25" type="number" name="nPosti" max="<?=$resultsEventi[0]["Numero_Posti"] ?>" min="0">
                         </div>
-                        <button type="submit" class="btn btn-primary">Acquista ora</button>
+                        <button type="submit" class="btn btn-outline-dark">Acquista ora</button>
                     </form>
                     <form method="post">
-                        <button type="submit" class="btn btn-secondary">Aggiungi al carrello</button>
+                        <button type="submit" class="btn btn-outline-dark">Aggiungi al carrello</button>
                     </form>
                 </div>
             </div>

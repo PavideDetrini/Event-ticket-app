@@ -25,13 +25,16 @@ if (!empty($pdo)) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://kit.fontawesome.com/d51081ccfb.js" crossorigin="anonymous"></script>
     <link href="style.css" rel="stylesheet" type="text/css">
-    <title>EVENTINOW</title>
+    <title>WaveTickets</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid ">
+        <a href="index.php" class="navbar-brand">
+            <img src="images/arancioBianco.png" class="logo" alt="Logo">
+        </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-between"> <!-- Modifica qui -->
                 <li class="nav-item">
                     <a href="index.php" class="nav-link">HOME</a>
                 </li>
@@ -47,20 +50,23 @@ if (!empty($pdo)) {
                 }
                 ?>
             </ul>
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
                 <li class="nav-item">
-                    <form class="d-flex form-group" method="get" action="risultati.php">
+                    <form class="d-flex form-group mb-0" method="get" action="risultati.php">
                         <input class="form-control me-1" type="search" id="search" name="search" placeholder="Search" autocomplete="off">
-                        <button class="btn btn-outline-primary" type="submit"><i class="bi bi-search"></i></button>
+                        <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
                     </form>
                 </li>
                 <?php
                 if(isset($_SESSION['user'])){
                     ?>
                     <li class="nav-item">
-                        <a href="carrello.php" class="nav-link">
+                        <a href="carrello.php" class="nav-link position-relative">
                             <i class="bi bi-cart"></i>
                             CARRELLO
+                            <span class="position-absolute top-75 translate-middle badge rounded-pill bg-danger">
+                                5
+                            </span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -80,9 +86,12 @@ if (!empty($pdo)) {
                 else{
                     ?>
                     <li class="nav-item">
-                        <a href="carrello.php" class="nav-link">
+                        <a href="carrello.php" class="nav-link position-relative">
                             <i class="bi bi-cart"></i>
                             CARRELLO
+                            <span class="position-absolute top-75 translate-middle badge rounded-pill bg-danger">
+                                5
+                            </span>
                         </a>
                     </li>
                     <li class="nav-item">
