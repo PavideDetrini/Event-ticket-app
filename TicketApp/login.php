@@ -1,9 +1,9 @@
 <?php
     //DA METTERE NELLA PAGINA CARRELLO COSI' L'UTENTE DEVE LOGGARSI PRIMA DI ACQUISTARE
-    session_start();
+    /*session_start();
     if(!isset($_SESSION['user'])){
         header("Location: login.php");
-    }
+    }*/
 ?>
 
 <?php
