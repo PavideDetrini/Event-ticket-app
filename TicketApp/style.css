@@ -1,0 +1,22 @@
+html, body{
+    height: 100%;
+    background-color: white;
+}
+
+.navbar {
+    background-color: white;
+    border-bottom: 1px solid white;
+}
+
+.navbar .nav-item {
+    color: #343a40;
+    padding: 0.5rem 1rem;
+}
+
+.navbar .nav-item.home {
+    font-weight: bold;
+}
+
+.navbar .form-control {
+    border-color: #ced4da;
+}
