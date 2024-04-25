@@ -58,13 +58,13 @@ if (!empty($pdo)) {
                         Link utili
                     </h6>
                     <p>
-                        <a href="help.php" class="text-reset">Supporto</a>
+                        <a href="help.php" class="text-reset noDecoration">Supporto</a>
                     </p>
                     <p>
-                        <a href="privacy.php" class="text-reset">Privacy</a>
+                        <a href="privacy.php" class="text-reset noDecoration">Privacy</a>
                     </p>
                     <p>
-                        <a href="https://github.com/PavideDetrini/Event-ticket-app" class="text-reset">Versioni</a>
+                        <a href="https://github.com/PavideDetrini/Event-ticket-app" class="text-reset noDecoration">Versioni</a>
                     </p>
                 </div>
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 mt-1">

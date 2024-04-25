@@ -1,4 +1,6 @@
 html, body{
+    margin: 0;
+    padding: 0;
     height: 100%;
     background-color: white;
     color: black;
@@ -6,6 +8,24 @@ html, body{
 .logo {
     max-width: 120px;
     height: auto;
+}
+
+/* INDEX */
+.container-slider{
+    color: black;
+}
+
+h1 {
+    text-align: center;
+    color: black;
+}
+p {
+    color: black;
+}
+
+.noDecoration{
+    text-decoration: none;
+    color: black;
 }
 
 /* FOOTER */
@@ -59,6 +79,12 @@ html, body{
 }
 
 /* NAVBAR */
+
+.bg-primary{
+    color: #FD8034;
+    background-color: white;
+}
+
 .navbar .nav-link {
     color: white;
 }
@@ -102,8 +128,46 @@ html, body{
 .account-info {
     padding: 20px;
 }
+
+.account-info {
+    max-width: 600px;
+    margin: auto;
+}
 .info-item {
-    margin-bottom: 15px;
+    border-bottom: 1px solid #dee2e6;
+    padding: 10px 0;
+}
+.info-item:last-child {
+    border-bottom: none;
+}
+.btn-modify {
+    margin-left: auto;
+}
+
+.imgCronologia {
+    object-fit: cover;
+    width: 100%;
+    max-height: 128px;
+    height: 100%;
+    border-right: 1px black solid;
+}
+
+.card-cronologia{
+    height: auto;
+    max-height: 128px;
+}
+
+.card-cronologia .card-body {
+    padding: 1rem;
+    text-align: left;
+}
+
+.card-cronologia .card-title {
+    margin-bottom: 0.5rem;
+}
+
+.card-cronologia .card-text {
+    margin-bottom: 0;
 }
 
 /* BOTTONI */
@@ -128,13 +192,7 @@ html, body{
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-h1 {
-    text-align: center;
-    color: #333;
-}
-p {
-    color: #666;
-}
+
 .contact-form {
     max-width: 400px;
     margin: 0 auto;
@@ -221,11 +279,6 @@ input {
     font-size: 200%;
 }
 
-.owl-prev i:hover,
-.owl-next i:hover{
-    color:black;
-}
-
 .owl-prev i {
     left: -2.5%
 }
@@ -268,6 +321,7 @@ input {
     width: 100%;
     max-width: 350px;
     object-fit: cover;
+    border-right: 1px black solid;
 }
 
 .card-body {
@@ -277,6 +331,7 @@ input {
 .card-title, .card-text {
     flex: 1;
 }
+
 .btn-container {
     display: flex;
     align-items: center;
@@ -287,28 +342,44 @@ input {
     margin-bottom: 20px;
 }
 
-a{
+.btn-primary {
+    border: 1px #FD8034 solid;
+    color: white;
+    background-color: #FD8034;
+}
 
-    color: black;
+.btn-primary:hover {
+    border: 1px #FD8034 solid;
+    color: #FD8034;
+    background-color: white;
 }
 
 /* PRIVACY */
 .privacy-page {
     margin-top: -50px;
     margin-bottom: -20px;
-    background-color: #FD8034;
-    color: white;
+    background-color: white;
+    color: black;
     padding: 2%;
 }
 
 .privacy-page a,
 .privacy-page p,
 .privacy-page h1{
-    color: white;
+    color: black;
 }
 
 /* REGISTRAZIONE */
-.container-registration {
+.html-form,
+.body-form {
+    height: 100%;
+    width: 100%;
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.container-form {
     background-color: #fff;
     color: #FD8034;
     border: 1px #FD8034 solid;
@@ -319,8 +390,8 @@ a{
     margin-top: 1%;
 }
 
-.container-registration p,
-.container-registration a{
+.container-form p,
+.container-form a {
     color: #FD8034;
 }
 
@@ -329,4 +400,84 @@ a{
     color: white;
     border-color: #FD8034;
     margin-top: 0.5%;
+}
+
+.btn-outline-primary {
+    border: 1px #FD8034 solid;
+    color: #FD8034;
+}
+
+.btn-outline-primary:hover {
+    border: 1px #FD8034 solid;
+    color: white;
+    background-color: #FD8034;
+}
+
+.form-control::placeholder {
+    color: #FD8034;
+}
+
+/* CARRELLO */
+.container-cart {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 15px;
+}
+
+.checkbox-cart {
+    flex-shrink: 0;
+    margin-right: 10px;
+    transform: scale(1.7);
+}
+
+.img-cart {
+    margin-right: 10px;
+}
+
+.acquista-cart {
+    margin-left: auto;
+}
+
+.submitBtn {
+    position: fixed;
+    bottom: 5%;
+    right: 3%;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transform: scale(1.4);
+}
+
+.elimina-cart {
+    background-color: rgba(255, 0, 0, 0.84);
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.elimina-cart:hover {
+    background-color: darkred;
+}
+
+
+.div-acquisto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.div-buttons{
+    display: flex;
+    margin-bottom: auto;
+    max-height: 45%;
+    align-items: center;
+    justify-content: center;
+
 }

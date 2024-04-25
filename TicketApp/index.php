@@ -28,7 +28,7 @@ if(isset($_SESSION['user'])){
                                 ?>
                                 <div class="owl-item">
                                     <img class="imgSwiper" src="<?= $evento['Immagine'] ?>">
-                                    <a href="prodotto.php?id=<?= $evento['ID_Evento'] ?>"><?= $evento['Descrizione'] . ' ' .  $evento['Prezzo'] ?>€</a>
+                                    <a class="noDecoration" href="prodotto.php?id=<?= $evento['ID_Evento'] ?>"><?= $evento['Descrizione'] . ' ' .  $evento['Prezzo'] ?>€</a>
                                 </div>
                                 <?php
                             }
@@ -70,7 +70,7 @@ foreach ($arrayCategorie as $value){
     <div class="container-slider">
         <div class="category-header">
             <h1><?= $value ?></h1>
-            <a href="categoria.php?categoria=<?= $value ?>" class="read-more">Per saperne di più</a>
+            <a href="categoria.php?categoria=<?= $value ?>" class="read-more noDecoration">Per saperne di più</a>
         </div>
         <div class="owl-carousel owl-theme owl-loaded text-center">
             <div class="owl-stage-outer">
@@ -79,7 +79,7 @@ foreach ($arrayCategorie as $value){
                     foreach ($eventi as $evento){
                         ?>
                         <div class="owl-item">
-                            <a href="prodotto.php?id=<?= $evento['ID_Evento'] ?>">
+                            <a class="noDecoration" href="prodotto.php?id=<?= $evento['ID_Evento'] ?>">
                                 <img  class="imgSwiper" src="<?= $evento['Immagine'] ?>">
                                 <?= $evento['Descrizione'] . ' ' .  $evento['Prezzo'] ?>€
                             </a>

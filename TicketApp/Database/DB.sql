@@ -64,6 +64,15 @@ CREATE TABLE Supporto
     FOREIGN KEY (Utente) REFERENCES Utenti (ID_Utente)
 );
 
+CREATE TABLE Carrello
+(
+    Utente INTEGER UNSIGNED,
+    Evento INTEGER UNSIGNED,
+    PRIMARY KEY (Utente, Evento),
+    FOREIGN KEY (Utente) REFERENCES Utenti (ID_Utente),
+    FOREIGN KEY (Evento) REFERENCES Eventi (ID_Evento)
+);
+
 INSERT INTO CategoriaEventi (Descrizione_Categoria)
 VALUES ('Concerti'),
        ('Sport'),

@@ -7,7 +7,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="html-form">
 <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,9 +15,10 @@
     <title>Registrazione</title>
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
-<body>
-    <div class="container-registration text-center w-25">
-        <h2>Registrazione</h2>
+<body class="body-form">
+    <section>
+        <div class="container-form text-center w-50">
+            <h2>Registrazione</h2>
             <form method="post" action="" autocomplete="off">
                 <div class="form-group m-4">
                     <input type="text" class="form-control" name="nome" id="nome" value="" placeholder="Nome">
@@ -38,14 +39,11 @@
                     <input type="password" class="form-control" name="confirm_password" id="confirm_password" value="" placeholder="Conferma Password">
                 </div>
                 <div class="form-btn m-2">
-                    <input type="submit" class="btn btn-primary" name="submit" value="Registrati">
+                    <input type="submit" class="btn btn-outline-primary" name="submit" value="Registrati">
                 </div>
             </form>
-        <p>Hai già un account? <a href="login.php">Login</a></p>
-    </div>
-    <div class='container text-center w-25 alert alert-danger' id="error"></div>
-</body>
-</html>
+            <p>Hai già un account? <a href="login.php">Login</a></p>
+        </div>
 
 <?php
     require_once 'Database\DB_connection.php';
@@ -104,4 +102,8 @@
         }
     }
 ?>
+        <div class='container text-center w-25 alert alert-danger' id="error"></div>
+    </section>
+</body>
+</html>
 

@@ -58,7 +58,7 @@ if(!empty($_GET)){
 
         <div class="container-slider mt-4">
             <div class="category-header">
-                <a href="categoria.php?categoria=<?=$resultsEventi[0]["Descrizione_Categoria"]?>">
+                <a class="noDecoration" href="categoria.php?categoria=<?=$resultsEventi[0]["Descrizione_Categoria"]?>">
                     <h1>Altri Eventi Simili...</h1>
                 </a>
             </div>
@@ -70,7 +70,7 @@ if(!empty($_GET)){
                             ?>
                             <div class="owl-item">
                                 <img class="imgSwiper" src="<?= $evento['Immagine'] ?>">
-                                <a href="prodotto.php?id=<?=$evento['ID_Evento']?>"><?= $evento['Descrizione'] . ' ' .  $evento['Prezzo']?>€</a>
+                                <a class="noDecoration" href="prodotto.php?id=<?=$evento['ID_Evento']?>"><?= $evento['Descrizione'] . ' ' .  $evento['Prezzo']?>€</a>
                             </div>
                             <?php
                         }
