@@ -1,82 +1,83 @@
 <?php
-    include_once "header.php";
-    require "Database\DB_connection.php";
-    if(!empty($_GET)){
-?>
-<div class="container-prodotto">
-    <img src="images/default.jpg" width="600" height="337">
-    <?php
-    $query = "SELECT * FROM Eventi WHERE ID_Evento = " . $_GET["id"];
-    $statement = $pdo -> query($query);
-    if ($statement){
-        $resultsEventi = $statement -> fetchAll();
-    }
-    $queryLuogo = "SELECT Città, Nome FROM Luoghi WHERE ID_Luogo = " . $resultsEventi[0]["Luogo"];
-    $statement2 = $pdo -> query($queryLuogo);
-    if ($statement2){
-        $resultsLuogo = $statement2 -> fetchAll();
-    }
-    $queryCategoria = "SELECT * FROM CategoriaEventi JOIN Eventi ON CategoriaEventi.ID_Categoria = Eventi.Categoria WHERE ID_Categoria = " . $resultsEventi[0]["Categoria"];
-    $statement3 = $pdo -> query($queryCategoria);
-    if ($statement2){
-        $resultsCategoria = $statement3 -> fetchAll();
-    }
-
-
-    /*
-    echo '<pre>';
-    print_r($results);
-    echo '</pre>';
-    */
+include_once "header.php";
+require "Database\DB_connection.php";
+if(!empty($_GET)){
     ?>
-    <div class="testo">
+    <div class="container-prodotto">
+        <img src="images/default.jpg" width="600" height="337">
+        <?php
+        if(!empty($pdo)){
+            $query = "SELECT * FROM Eventi 
+              JOIN categoriaeventi ON Eventi.Categoria = categoriaeventi.ID_Categoria
+              JOIN luoghi ON Eventi.Luogo = luoghi.ID_Luogo
+              WHERE Eventi.ID_Evento = " . $_GET["id"] . ";";
+            $statement = $pdo -> query($query);
+            if ($statement){
+                $resultsEventi = $statement -> fetchAll();
+            }
 
-        <h4><?=$resultsEventi[0]["Descrizione"]?></h4>
-        <b>Data: </b><?=explode(" ", $resultsEventi[0]["Data"])[0]?>
-        <br>
-        <b>Ore: </b><?=explode(" ", $resultsEventi[0]["Data"])[1]?>
-        <br>
-        <b>Luogo: </b><?=$resultsLuogo[0]["Nome"] . ", " . $resultsLuogo[0]["Città"]?>
-    </div>
-    <div>
-        <form action="carrello.php" method="post">
-            <label for="nPosti">inserire biglietti che si vogliono acquistare</label>
-            <input id="nPosti" type="number" name="nPosti" max="<?=$resultsEventi[0]["Numero_Posti"] ?>" min="0">
-            <input type="submit" value="acquista ora">
+            $queryCategoria = "SELECT * FROM Eventi WHERE Categoria = " . $resultsEventi[0]["Categoria"] . ";";
+            $statement = $pdo -> query($queryCategoria);
+            if ($statement){
+                $resultsCategoria = $statement -> fetchAll();
+            }
+        }
 
-        </form>
-        <form method="post">
-            <input type="submit" value="aggiungi al carrello">
-        </form>
-    </div>
-</div>
+        $formatter = new IntlDateFormatter('it_IT', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
 
-<div class="container-slider">
-    <div class="category-header">
-        <h1>Altri Eventi Simili...</h1>
+        ?>
+        <div class="testo">
+
+            <h4><?=$resultsEventi[0]["Descrizione"]?></h4>
+            <p><strong>Data</strong>: <?=$formatter->format(strtotime(explode(" ", $resultsEventi[0]["Data"])[0]))?></p>
+            <p><strong>Ora: </strong><?=explode(" ", $resultsEventi[0]["Data"])[1]?></p>
+            <p><strong>Luogo: </strong><?=$resultsEventi[0]["Nome"] . ", " . $resultsEventi[0]["Città"]?></p>
+            <p><strong>Prezzo: </strong><?=$resultsEventi[0]["Prezzo"]?>€</p>
+        </div>
+        <div>
+            <form action="carrello.php" method="post">
+                <label for="nPosti">inserire biglietti che si vogliono acquistare</label>
+                <input id="nPosti" type="number" name="nPosti" max="<?=$resultsEventi[0]["Numero_Posti"] ?>" min="0">
+                <input type="submit" value="acquista ora">
+
+            </form>
+            <form method="post">
+                <input type="submit" value="aggiungi al carrello">
+            </form>
+        </div>
     </div>
-    <div class="owl-carousel owl-theme owl-loaded text-center">
-        <div class="owl-stage-outer">
-            <div class="owl-stage">
-                <?php
-                foreach ($resultsCategoria as $evento){
-                    ?>
-                    <div class="owl-item">
-                        <img src="images\default.jpg">
-                        <a href="prodotto.php?id=<?=$evento['ID_Evento']?>"><?= $evento['Descrizione'] . ' ' .  $evento['Prezzo']?></a>
-                    </div>
+
+
+
+    <div class="container-slider">
+        <div class="category-header">
+            <a href="categoria.php?categoria=<?=$resultsEventi[0]["Descrizione_Categoria"]?>">
+                <h1>Altri Eventi Simili...</h1>
+            </a>
+        </div>
+        <div class="owl-carousel owl-theme owl-loaded text-center">
+            <div class="owl-stage-outer">
+                <div class="owl-stage">
                     <?php
-                }
-                ?>
+
+                    foreach ($resultsCategoria as $evento){
+                        ?>
+                        <div class="owl-item">
+                            <img src="images\default.jpg">
+                            <a href="prodotto.php?id=<?=$evento['ID_Evento']?>"><?= $evento['Descrizione'] . ' ' .  $evento['Prezzo']?>€</a>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<?php
-    }
-    else{
-        echo 'ERROR!';
-    }
-    include_once "footer.php";
+    <?php
+}
+else{
+    echo 'ERROR!';
+}
+include_once "footer.php";
 ?>

@@ -28,7 +28,7 @@ if(isset($_SESSION['user'])){
                                 ?>
                                 <div class="owl-item">
                                     <img src="images\default.jpg">
-                                    <a href="prodotto.php?id=<?=$evento['ID_Evento']?>"><?= $evento['Descrizione'] . ' ' .  $evento['Prezzo']?></a>
+                                    <a href="prodotto.php?id=<?=$evento['ID_Evento']?>"><?= $evento['Descrizione'] . ' ' .  $evento['Prezzo']?>€</a>
                                 </div>
                                 <?php
                             }
@@ -80,7 +80,7 @@ foreach ($arrayCategorie as $value){
                         ?>
                         <div class="owl-item">
                             <img src="images\default.jpg">
-                            <a href="prodotto.php?id=<?=$evento['ID_Evento']?>"><?= $evento['Descrizione'] . ' ' .  $evento['Prezzo']?></a>
+                            <a href="prodotto.php?id=<?=$evento['ID_Evento']?>"><?= $evento['Descrizione'] . ' ' .  $evento['Prezzo']?>€</a>
                         </div>
                         <?php
                     }

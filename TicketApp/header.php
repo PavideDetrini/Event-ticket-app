@@ -49,8 +49,8 @@ if (!empty($pdo)) {
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <form class="d-flex" method="get" action="#">
-                        <input class="form-control me-2" type="search" placeholder="Search">
+                    <form class="d-flex" method="get" action="risultati.php">
+                        <input class="form-control me-2" type="search"  id="search" name="search" placeholder="Search">
                         <button class="btn btn-outline-primary" type="submit">Search</button>
                     </form>
                 </li>

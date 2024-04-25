@@ -73,33 +73,32 @@ if(isset($_GET['sort'])){
         ?>
         <div>
             <img src="images\default.jpg">
-            <a  href="prodotto.php?id=<?=$evento['ID_Evento']?>"><?= $evento['Descrizione'] . ' ' .  $evento['Prezzo']?></a>
+            <a  href="prodotto.php?id=<?=$evento['ID_Evento']?>"><?= $evento['Descrizione'] . ' ' .  $evento['Prezzo']?>€</a>
         </div>
         <?php
     }
 
 }
-else{
-    if (!empty($pdo)) {
-        $query = "SELECT Eventi.Descrizione, Eventi.Prezzo, Eventi.ID_Evento
+
+if (!empty($pdo)) {
+    $query = "SELECT Eventi.Descrizione, Eventi.Prezzo, Eventi.ID_Evento
         from eventi
         join categoriaeventi on eventi.Categoria = categoriaeventi.ID_Categoria
         where CategoriaEventi.Descrizione_Categoria like '$var';";
-        $statement = $pdo -> query($query);
+    $statement = $pdo -> query($query);
 
-        if (!$statement){
-            echo "ERROR";
-        }
-        else{
-            $eventi = $statement -> fetchAll();
-            foreach ($eventi as $evento){
-                ?>
-                <div>
-                    <img src="images\default.jpg">
-                    <a  href="prodotto.php?id=<?=$evento['ID_Evento']?>"><?= $evento['Descrizione'] . ' ' .  $evento['Prezzo']?></a>
-                </div>
-                <?php
-            }
+    if (!$statement){
+        echo "ERROR";
+    }
+    else{
+        $eventi = $statement -> fetchAll();
+        foreach ($eventi as $evento){
+            ?>
+            <div>
+                <img src="images\default.jpg">
+                <a  href="prodotto.php?id=<?=$evento['ID_Evento']?>"><?= $evento['Descrizione'] . ' ' .  $evento['Prezzo']?>€</a>
+            </div>
+            <?php
         }
     }
 }
