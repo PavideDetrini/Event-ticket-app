@@ -18,28 +18,37 @@ if(isset($_GET['search'])){
 
 ?>
     <div class="container my-4">
-        <h1 class="mb-4">Risultati per: <?=$parola ?></h1>
 <?php
-    foreach ($eventi as $evento){
+    if(count($eventi) > 0){
         ?>
-        <div class="card mb-3 border border-dark">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="<?= $evento['Immagine'] ?>" class="img-fluid rounded-start imgCategoria" alt="<?= $evento['Descrizione'] ?>">
-                </div>
-                <div class="col-md-8 d-flex align-items-center">
-                    <div class="card-body d-flex justify-content-between align-items-center w-100">
-                        <div>
-                            <h5 class="card-title"><?= $evento['Descrizione'] ?></h5>
-                            <p class="card-text"><?= $evento['Prezzo'] ?>€</p>
-                        </div>
-                        <div class="btn-container">
-                            <a href="prodotto.php?id=<?= $evento['ID_Evento'] ?>" class="btn btn-primary">Vedi Dettagli</a>
+        <h1 class="mb-4">Risultati per: <?=$parola ?></h1>
+        <?php
+        foreach ($eventi as $evento){
+            ?>
+            <div class="card mb-3 border border-dark">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="<?= $evento['Immagine'] ?>" class="img-fluid rounded-start imgCategoria" alt="<?= $evento['Descrizione'] ?>">
+                    </div>
+                    <div class="col-md-8 d-flex align-items-center">
+                        <div class="card-body d-flex justify-content-between align-items-center w-100">
+                            <div>
+                                <h5 class="card-title"><?= $evento['Descrizione'] ?></h5>
+                                <p class="card-text"><?= $evento['Prezzo'] ?>€</p>
+                            </div>
+                            <div class="btn-container">
+                                <a href="prodotto.php?id=<?= $evento['ID_Evento'] ?>" class="btn btn-primary">Vedi Dettagli</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <?php
+        }
+    }
+    else{
+        ?>
+        <h1 class="mb-4">Nessun risultato</h1>
         <?php
     }
 ?>

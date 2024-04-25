@@ -40,7 +40,6 @@ p {
 }
 
  .custom-footer {
-     /*padding-top: 1%;*/
      background-color: #FD8034;
      color: white;
      border-top: 2px white solid;
@@ -82,7 +81,6 @@ p {
 
 .bg-primary{
     color: #FD8034;
-    background-color: white;
 }
 
 .navbar .nav-link {

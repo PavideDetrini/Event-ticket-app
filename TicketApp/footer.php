@@ -16,7 +16,7 @@ if (!empty($pdo)) {
 ?>
 
 
-<footer class="text-center custom-footer">
+<footer class="text-center custom-footer sticky">
     <section>
         <div class="container text-start mt-5">
             <div class="row mt-2">

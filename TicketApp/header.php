@@ -65,10 +65,9 @@ if (!empty($pdo)) {
                         <a href="carrello.php" class="nav-link position-relative">
                             <i class="bi bi-cart"></i>
                             CARRELLO
-                            <span class="position-absolute top-75 translate-middle badge rounded-pill bg-white text-warning">
+                            <span class="position-absolute top-75 translate-middle badge rounded-pill bg-primary bg-white">
                                 5
                             </span>
-
                         </a>
                     </li>
                     <li class="nav-item">
@@ -91,7 +90,7 @@ if (!empty($pdo)) {
                         <a href="carrello.php" class="nav-link position-relative">
                             <i class="bi bi-cart"></i>
                             CARRELLO
-                            <span class="position-absolute top-75 translate-middle badge rounded-pill bg-danger">
+                            <span class="position-absolute top-75 translate-middle badge rounded-pill bg-primary bg-white">
                                 5
                             </span>
                         </a>
