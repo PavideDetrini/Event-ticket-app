@@ -171,12 +171,6 @@ input {
     display: inline-flex;
     justify-content: left;
 }
-.testo {
-    max-width: 100%;
-    max-height: 100%;
-    padding-left: 6px;
-}
-
 
 .imgSwiper {
     height: 260px;
@@ -191,21 +185,21 @@ input {
     max-height: 200px;
     width: 100%;
     max-width: 350px;
+    padding-top: 25px;
     object-fit: cover;
-    border: black 1px solid;
+    /*border: black 1px solid;*/
 }
 
-#imgProdotto {
+.imgProdotto {
     height: auto;
-    max-height: 300px;
+    max-height: 500px;
     width: 100%;
-    max-width: 400px;
+    max-width: 700px;
     object-fit: cover;
     border: black 2px solid;
+    margin-left: 6%;
 }
 
-
-/**/
 .card-body {
     display: flex;
     align-items: center;
@@ -223,3 +217,7 @@ input {
     margin-bottom: 20px;
 }
 
+a{
+    text-decoration: none;
+    color: black;
+}

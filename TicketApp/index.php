@@ -79,8 +79,10 @@ foreach ($arrayCategorie as $value){
                     foreach ($eventi as $evento){
                         ?>
                         <div class="owl-item">
-                            <img  class="imgSwiper" src="<?= $evento['Immagine'] ?>">
-                            <a href="prodotto.php?id=<?= $evento['ID_Evento'] ?>"><?= $evento['Descrizione'] . ' ' .  $evento['Prezzo'] ?>€</a>
+                            <a href="prodotto.php?id=<?= $evento['ID_Evento'] ?>">
+                                <img  class="imgSwiper" src="<?= $evento['Immagine'] ?>">
+                                <?= $evento['Descrizione'] . ' ' .  $evento['Prezzo'] ?>€
+                            </a>
                         </div>
                         <?php
                     }

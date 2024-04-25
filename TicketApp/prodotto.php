@@ -1,9 +1,9 @@
 <?php
 include_once "header.php";
-require "Database\DB_connection.php";
+require "Database/DB_connection.php";
 if(!empty($_GET)){
     ?>
-    <div class="container-prodotto">
+    <div>
         <?php
         if(!empty($pdo)){
             $query = "SELECT * FROM Eventi 
@@ -19,11 +19,6 @@ if(!empty($_GET)){
                 $linkImmagine=$evento['Immagine'];
             }
 
-            ?>
-            <img  id="imgProdotto" src="<?= $linkImmagine ?>">
-
-            <?php
-
             $queryCategoria = "SELECT * FROM Eventi WHERE Categoria = " . $resultsEventi[0]["Categoria"] . " AND Eventi.ID_Evento != " . $_GET["id"] . ";";
             $statement = $pdo -> query($queryCategoria);
             if ($statement){
@@ -32,51 +27,55 @@ if(!empty($_GET)){
         }
 
         $formatter = new IntlDateFormatter('it_IT', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
-
         ?>
-        <div class="testo">
 
-            <h4><?=$resultsEventi[0]["Descrizione"]?></h4>
-            <p><strong>Data</strong>: <?=$formatter->format(strtotime(explode(" ", $resultsEventi[0]["Data"])[0]))?></p>
-            <p><strong>Ora: </strong><?=explode(" ", $resultsEventi[0]["Data"])[1]?></p>
-            <p><strong>Luogo: </strong><?=$resultsEventi[0]["Nome"] . ", " . $resultsEventi[0]["Città"]?></p>
-            <p><strong>Prezzo: </strong><?=$resultsEventi[0]["Prezzo"]?>€</p>
-        </div>
-        <div>
-            <form action="carrello.php" method="post">
-                <label for="nPosti">inserire biglietti che si vogliono acquistare</label>
-                <input id="nPosti" type="number" name="nPosti" max="<?=$resultsEventi[0]["Numero_Posti"] ?>" min="0">
-                <input type="submit" value="acquista ora">
-
-            </form>
-            <form method="post">
-                <input type="submit" value="aggiungi al carrello">
-            </form>
-        </div>
-    </div>
-
-
-
-    <div class="container-slider">
-        <div class="category-header">
-            <a href="categoria.php?categoria=<?=$resultsEventi[0]["Descrizione_Categoria"]?>">
-                <h1>Altri Eventi Simili...</h1>
-            </a>
-        </div>
-        <div class="owl-carousel owl-theme owl-loaded text-center">
-            <div class="owl-stage-outer">
-                <div class="owl-stage">
-                    <?php
-
-                    foreach ($resultsCategoria as $evento){
-                        ?>
-                        <div class="owl-item">
-                            <img class="imgSwiper"  src="<?= $evento['Immagine'] ?>">
-                            <a href="prodotto.php?id=<?=$evento['ID_Evento']?>"><?= $evento['Descrizione'] . ' ' .  $evento['Prezzo']?>€</a>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <img class="img-fluid w-100 imgProdotto rounded" src="<?= $linkImmagine ?>">
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <h4><?=$resultsEventi[0]["Descrizione"]?></h4>
+                    <p><strong>Data</strong>: <?=$formatter->format(strtotime(explode(" ", $resultsEventi[0]["Data"])[0]))?></p>
+                    <p><strong>Ora: </strong><?=explode(" ", $resultsEventi[0]["Data"])[1]?></p>
+                    <p><strong>Luogo: </strong><?=$resultsEventi[0]["Nome"] . ", " . $resultsEventi[0]["Città"]?></p>
+                    <p><strong>Prezzo: </strong><?=$resultsEventi[0]["Prezzo"]?>€</p>
+                </div>
+                <div>
+                    <form action="carrello.php" method="post" class="mb-2">
+                        <div class="form-group">
+                            <label for="nPosti">Inserire biglietti che si vogliono acquistare</label>
+                            <input id="nPosti" class="form-control w-25" type="number" name="nPosti" max="<?=$resultsEventi[0]["Numero_Posti"] ?>" min="0">
                         </div>
+                        <button type="submit" class="btn btn-primary">Acquista ora</button>
+                    </form>
+                    <form method="post">
+                        <button type="submit" class="btn btn-secondary">Aggiungi al carrello</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-slider mt-4">
+            <div class="category-header">
+                <a href="categoria.php?categoria=<?=$resultsEventi[0]["Descrizione_Categoria"]?>">
+                    <h1>Altri Eventi Simili...</h1>
+                </a>
+            </div>
+            <div class="owl-carousel owl-theme owl-loaded text-center">
+                <div class="owl-stage-outer">
+                    <div class="owl-stage">
                         <?php
-                    }
-                    ?>
+                        foreach ($resultsCategoria as $evento){
+                            ?>
+                            <div class="owl-item">
+                                <img class="imgSwiper" src="<?= $evento['Immagine'] ?>">
+                                <a href="prodotto.php?id=<?=$evento['ID_Evento']?>"><?= $evento['Descrizione'] . ' ' .  $evento['Prezzo']?>€</a>
+                            </div>
+                            <?php
+                        }
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>
@@ -85,7 +84,7 @@ if(!empty($_GET)){
     <?php
 }
 else{
-    echo 'ERROR!';
+    echo '<div class="alert alert-danger" role="alert">ERROR!</div>';
 }
 include_once "footer.php";
 ?>

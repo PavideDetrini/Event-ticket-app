@@ -84,7 +84,7 @@ $var = htmlspecialchars($_GET['categoria']);
             $eventi = $statement->fetchAll();
             foreach ($eventi as $evento) {
                 ?>
-                <div class="card mb-3">
+                <div class="card mb-3 border border-dark">
                     <div class="row g-0">
                         <div class="col-md-4">
                             <img src="<?= $evento['Immagine'] ?>" class="img-fluid rounded-start imgCategoria" alt="<?= $evento['Descrizione'] ?>">
