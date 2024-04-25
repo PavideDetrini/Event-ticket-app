@@ -8,6 +8,7 @@ if(isset($_SESSION['user'])){
     if(!empty($pdo)){
         $query = "SELECT Eventi.Descrizione, Eventi.Prezzo, Eventi.ID_Evento, Eventi.Immagine, COUNT(Biglietti.ID_Biglietto) AS Biglietti_Venduti
                   FROM Eventi LEFT JOIN Biglietti ON Eventi.ID_Evento = Biglietti.Evento
+                  WHERE Eventi.Data > CURDATE()
                   GROUP BY Eventi.ID_Evento
                   ORDER BY Biglietti_Venduti DESC LIMIT 9;";
 
@@ -28,7 +29,9 @@ if(isset($_SESSION['user'])){
                             foreach ($eventiConsigliati as $evento){
                                 ?>
                                 <div class="owl-item">
-                                    <img class="imgSwiper" src="<?= $evento['Immagine'] ?>">
+                                    <a href="prodotto.php?id=<?= $evento['ID_Evento'] ?>">
+                                        <img class="imgSwiper" src="<?= $evento['Immagine'] ?>">
+                                    </a>
                                     <a class="noDecoration" href="prodotto.php?id=<?= $evento['ID_Evento'] ?>"><?= $evento['Descrizione'] . ' ' .  $evento['Prezzo'] ?>€</a>
                                 </div>
                                 <?php
@@ -63,7 +66,7 @@ foreach ($arrayCategorie as $value){
     array_push($arrayCategorie, $item);
     $query3="SELECT Eventi.Descrizione, Eventi.Prezzo, Eventi.ID_Evento, Eventi.Immagine
              FROM Eventi JOIN CategoriaEventi ON Eventi.Categoria = CategoriaEventi.ID_Categoria
-             WHERE CategoriaEventi.Descrizione_Categoria LIKE '$value';";
+             WHERE CategoriaEventi.Descrizione_Categoria LIKE '$value' AND Eventi.Data > CURDATE();";
 
     $statement3 = $pdo->query($query3);
     $eventi = $statement3->fetchAll();
@@ -80,8 +83,10 @@ foreach ($arrayCategorie as $value){
                     foreach ($eventi as $evento){
                         ?>
                         <div class="owl-item">
+                            <a href="prodotto.php?id=<?= $evento['ID_Evento'] ?>">
+                                <img class="imgSwiper" src="<?= $evento['Immagine'] ?>">
+                            </a>
                             <a class="noDecoration" href="prodotto.php?id=<?= $evento['ID_Evento'] ?>">
-                                <img  class="imgSwiper" src="<?= $evento['Immagine'] ?>">
                                 <?= $evento['Descrizione'] . ' ' .  $evento['Prezzo'] ?>€
                             </a>
                         </div>

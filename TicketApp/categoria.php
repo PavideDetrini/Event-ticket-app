@@ -31,7 +31,7 @@ $var = htmlspecialchars($_GET['categoria']);
         $query = "SELECT Eventi.Descrizione, Eventi.Prezzo, Eventi.ID_Evento, Eventi.Immagine
                   FROM eventi
                   JOIN categoriaeventi ON eventi.Categoria = categoriaeventi.ID_Categoria
-                  WHERE CategoriaEventi.Descrizione_Categoria LIKE '$var'";
+                  WHERE CategoriaEventi.Descrizione_Categoria LIKE '$var' AND Eventi.Data > CURDATE()";
 
         switch ($scelta) {
             case 'nomeAsc':
@@ -56,7 +56,9 @@ $var = htmlspecialchars($_GET['categoria']);
             <div class="card mb-3">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="<?= $evento['Immagine'] ?>" class="img-fluid rounded-start fixed-image imgCategoria" alt="<?= $evento['Descrizione'] ?>">
+                        <a href="prodotto.php?id=<?= $evento['ID_Evento'] ?>">
+                            <img src="<?= $evento['Immagine'] ?>" class="img-fluid rounded-start fixed-image imgCategoria" alt="<?= $evento['Descrizione'] ?>">
+                        </a>
                     </div>
                     <div class="col-md-8 d-flex align-items-center">
                         <div class="card-body d-flex justify-content-between align-items-center w-100">
@@ -77,7 +79,7 @@ $var = htmlspecialchars($_GET['categoria']);
         $query = "SELECT Eventi.Descrizione, Eventi.Prezzo, Eventi.ID_Evento, Eventi.Immagine
                   FROM eventi
                   JOIN categoriaeventi ON eventi.Categoria = categoriaeventi.ID_Categoria
-                  WHERE CategoriaEventi.Descrizione_Categoria LIKE '$var';";
+                  WHERE CategoriaEventi.Descrizione_Categoria LIKE '$var' AND Eventi.Data > CURDATE();";
         $statement = $pdo->query($query);
 
         if ($statement) {
@@ -87,7 +89,9 @@ $var = htmlspecialchars($_GET['categoria']);
                 <div class="card mb-3 border border-dark">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="<?= $evento['Immagine'] ?>" class="img-fluid rounded-start imgCategoria" alt="<?= $evento['Descrizione'] ?>">
+                            <a href="prodotto.php?id=<?= $evento['ID_Evento'] ?>">
+                                <img src="<?= $evento['Immagine'] ?>" class="img-fluid rounded-start fixed-image imgCategoria" alt="<?= $evento['Descrizione'] ?>">
+                            </a>
                         </div>
                         <div class="col-md-8 d-flex align-items-center">
                             <div class="card-body d-flex justify-content-between align-items-center w-100">

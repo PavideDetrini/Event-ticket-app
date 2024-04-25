@@ -148,11 +148,12 @@ p {
     max-height: 128px;
     height: 100%;
     border-right: 1px black solid;
+    border-bottom: 1px black solid;
 }
 
 .card-cronologia{
     height: auto;
-    max-height: 128px;
+    max-height: 129px;
 }
 
 .card-cronologia .card-body {
@@ -186,9 +187,15 @@ p {
     width: 80%;
     margin: 20px auto;
     background-color: #fff;
+    color: #FD8034;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px #FD8034 solid;
+}
+
+.container-help p{
+    color: #FD8034;
 }
 
 .contact-form {
@@ -202,30 +209,33 @@ p {
 .form-group label {
     display: block;
     margin-bottom: 5px;
-    color: #333;
+    color: #FD8034;
 }
 .form-group input,
 .form-group input,
 .form-group textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #FD8034;
     border-radius: 5px;
 }
 .form-group textarea {
     height: 150px;
 }
 .form-group input[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
+    border: 1px #FD8034 solid;
+    color: white;
+    background-color: #FD8034;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
 }
 .form-group input[type="submit"]:hover {
-    background-color: #0056b3;
+    border: 1px #FD8034 solid;
+    color: #FD8034;
+    background-color: white;
 }
+
 
 /* ORDINAMENTO */
 select {
@@ -400,6 +410,13 @@ input {
     margin-top: 0.5%;
 }
 
+.alert-success{
+    background-color: white;
+    color: #FD8034;
+    border-color: #FD8034;
+    margin-top: 0.5%;
+}
+
 .btn-outline-primary {
     border: 1px #FD8034 solid;
     color: #FD8034;
@@ -498,4 +515,17 @@ input {
     align-items: center;
     justify-content: center;
 
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-title {
+    margin-bottom: 0.5rem;
+}
+
+.card-text-acquisto {
+    margin-bottom: 0;
+    text-align: end;
 }

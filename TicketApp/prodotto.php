@@ -19,7 +19,7 @@ if (!empty($_GET)) {
                 $linkImmagine = $evento['Immagine'];
             }
 
-            $queryCategoria = "SELECT * FROM Eventi WHERE Categoria = " . $resultsEventi[0]["Categoria"] . " AND Eventi.ID_Evento != " . $_GET["id"] . ";";
+            $queryCategoria = "SELECT * FROM Eventi WHERE Eventi.Data > CURDATE() AND Categoria = " . $resultsEventi[0]["Categoria"] . " AND Eventi.ID_Evento != " . $_GET["id"] . ";";
             $statement = $pdo->query($queryCategoria);
             if ($statement) {
                 $resultsCategoria = $statement->fetchAll();
@@ -82,8 +82,10 @@ if (!empty($_GET)) {
                     foreach ($resultsCategoria as $evento) {
                         ?>
                         <div class="owl-item">
-                            <img class="imgSwiper" src="<?= $evento['Immagine'] ?>">
-                            <a href="prodotto.php?id=<?= $evento['ID_Evento'] ?>"><?= $evento['Descrizione'] . ' ' . $evento['Prezzo'] ?></a>
+                            <a href="prodotto.php?id=<?= $evento['ID_Evento'] ?>">
+                                <img class="imgSwiper" src="<?= $evento['Immagine'] ?>">
+                            </a>
+                            <a class="noDecoration" href="prodotto.php?id=<?= $evento['ID_Evento'] ?>"><?= $evento['Descrizione'] . ' ' . $evento['Prezzo'] ?></a>
                         </div>
                         <?php
                     }

@@ -28,7 +28,9 @@ if(isset($_GET['search'])){
             <div class="card mb-3 border border-dark">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="<?= $evento['Immagine'] ?>" class="img-fluid rounded-start imgCategoria" alt="<?= $evento['Descrizione'] ?>">
+                        <a href="prodotto.php?id=<?= $evento['ID_Evento'] ?>">
+                            <img src="<?= $evento['Immagine'] ?>" class="img-fluid rounded-start imgCategoria" alt="<?= $evento['Descrizione'] ?>">
+                        </a>
                     </div>
                     <div class="col-md-8 d-flex align-items-center">
                         <div class="card-body d-flex justify-content-between align-items-center w-100">

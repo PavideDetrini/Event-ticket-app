@@ -16,25 +16,27 @@
     <title>Cambia Username</title>
 </head>
 <body class="body-form">
-<div class="container-form text-center w-25 mx-auto">
-    <h2>Cambia Username</h2>
-    <form method="post" action="" autocomplete="off">
-        <div class="form-group m-4">
-            <input type="text" class="form-control" name="nome" id="nome" value="" placeholder="Nome">
+    <section>
+        <div class="container-form text-center w-25 mx-auto">
+            <h2>Cambia Username</h2>
+            <form method="post" action="" autocomplete="off">
+                <div class="form-group m-4">
+                    <input type="text" class="form-control" name="nome" id="nome" value="" placeholder="Nome">
+                </div>
+                <div class="form-group m-4">
+                    <input type="text" class="form-control" name="cognome" id="cognome" value="" placeholder="Cognome">
+                </div>
+                <div class="form-group m-4">
+                    <input type="email" class="form-control" name="email" id="email" value="" placeholder="Email">
+                </div>
+                <div class="form-group m-4">
+                    <input type="text" class="form-control" name="username" id="username" value="" placeholder="Nuovo Username">
+                </div>
+                <div class="form-btn m-2">
+                    <input type="submit" class="btn btn-primary" name="submit" value="Cambia Username">
+                </div>
+            </form>
         </div>
-        <div class="form-group m-4">
-            <input type="text" class="form-control" name="cognome" id="cognome" value="" placeholder="Cognome">
-        </div>
-        <div class="form-group m-4">
-            <input type="email" class="form-control" name="email" id="email" value="" placeholder="Email">
-        </div>
-        <div class="form-group m-4">
-            <input type="text" class="form-control" name="username" id="username" value="" placeholder="Nuovo Username">
-        </div>
-        <div class="form-btn m-2">
-            <input type="submit" class="btn btn-primary" name="submit" value="Cambia Username">
-        </div>
-    </form>
 
 <?php
     require_once 'Database\DB_connection.php';
@@ -67,7 +69,7 @@ if(isset($_POST['submit'])){
 
     if(count($errors) > 0){
         foreach ($errors as $value){
-            echo "<div class='container text-center alert alert-danger'>$value</div>";
+            echo "<div class='container text-center alert alert-danger w-25'>$value</div>";
         }
     }
     else{
@@ -79,15 +81,17 @@ if(isset($_POST['submit'])){
         $result = $statement->execute($parameters);
 
         if ($result){
-            echo "<div class='container text-center alert alert-success'>Username cambiato con successo</div>";
+            echo "<div class='container text-center alert alert-success w-25'>Username cambiato con successo</div>";
+            echo "<div class='text-center'>";
             echo "<a class='btn btn-primary' href='account.php'>Torna all'account</a>";
+            echo "</div>";
         }
         else{
-            echo "<div class='container text-center alert alert-danger'>Si è verificato un errore durante l'aggiornamento dell'username</div>";
+            echo "<div class='container text-center alert alert-danger w-25'>Si è verificato un errore durante l'aggiornamento dell'username</div>";
         }
     }
 }
 ?>
-</div>
+    </section>
 </body>
 </html>

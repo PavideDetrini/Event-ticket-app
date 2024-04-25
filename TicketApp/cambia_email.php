@@ -16,27 +16,27 @@ if(!isset($_SESSION['user'])){
     <title>Cambia Email</title>
 </head>
 <body class="body-form">
-<section>
-    <div class="container-form text-center w-25 mx-auto">
-        <h2>Cambia Email</h2>
-        <form method="post" action="" autocomplete="off">
-            <div class="form-group m-4">
-                <input type="text" class="form-control" name="nome" id="nome" value="" placeholder="Nome">
-            </div>
-            <div class="form-group m-4">
-                <input type="text" class="form-control" name="cognome" id="cognome" value="" placeholder="Cognome">
-            </div>
-            <div class="form-group m-4">
-                <input type="email" class="form-control" name="email" id="email" value="" placeholder="Email">
-            </div>
-            <div class="form-group m-4">
-                <input type="email" class="form-control" name="newEmail" id="newEmail" value="" placeholder="Nuova Email">
-            </div>
-            <div class="form-btn m-2">
-                <input type="submit" class="btn btn-primary" name="submit" value="Cambia Email">
-            </div>
-        </form>
-    </div>
+    <section>
+        <div class="container-form text-center w-25 mx-auto">
+            <h2>Cambia Email</h2>
+            <form method="post" action="" autocomplete="off">
+                <div class="form-group m-4">
+                    <input type="text" class="form-control" name="nome" id="nome" value="" placeholder="Nome">
+                </div>
+                <div class="form-group m-4">
+                    <input type="text" class="form-control" name="cognome" id="cognome" value="" placeholder="Cognome">
+                </div>
+                <div class="form-group m-4">
+                    <input type="email" class="form-control" name="email" id="email" value="" placeholder="Email">
+                </div>
+                <div class="form-group m-4">
+                    <input type="email" class="form-control" name="newEmail" id="newEmail" value="" placeholder="Nuova Email">
+                </div>
+                <div class="form-btn m-2">
+                    <input type="submit" class="btn btn-primary" name="submit" value="Cambia Email">
+                </div>
+            </form>
+        </div>
 
     <?php
     require_once 'Database\DB_connection.php';
@@ -83,14 +83,16 @@ if(!isset($_SESSION['user'])){
 
             if ($result){
                 echo "<div class='container text-center alert alert-success w-25 mt-2'>Email cambiata con successo</div>";
-                echo "<a class='text-center btn btn-primary' href='account.php'>Torna all'account</a>";
+                echo "<div class='text-center'>";
+                echo "<a class='btn btn-primary' href='account.php'>Torna all'account</a>";
+                echo "</div>";
             }
             else{
-                echo "<div class='container text-center alert alert-danger'>Si è verificato un errore durante l'aggiornamento dell'email</div>";
+                echo "<div class='container text-center alert alert-danger w-25'>Si è verificato un errore durante l'aggiornamento dell'email</div>";
             }
         }
     }
     ?>
-</section>
+    </section>
 </body>
 </html>

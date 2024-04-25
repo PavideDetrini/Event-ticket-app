@@ -6,7 +6,7 @@ if(!isset($_SESSION['user'])){
 ?>
 
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" class="html-form">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@ if(!isset($_SESSION['user'])){
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="body-form">
 <div class="container-help">
     <h1>Supporto Tecnico</h1>
     <p>Benvenuto nel nostro servizio di supporto tecnico. Compila il modulo sottostante per inviarci un messaggio.</p>
@@ -37,7 +37,7 @@ if(!isset($_SESSION['user'])){
                 <textarea id="messaggio" name="messaggio" required></textarea>
             </div>
             <div class="form-group">
-                <input name="submit" type="submit" value="Invia">
+                <input class="btn btn-primary" name="submit" type="submit" value="Invia">
             </div>
         </form>
     </div>
@@ -77,14 +77,14 @@ if(isset($_POST['submit'])){
             $parameters['cognome'] = $cognome;
             $parameters['email'] = $email;
             $parameters['messaggio']=$messaggio;
-            $query = "INSERT INTO Supporto ( Nome, Cognome, Email,Messaggio) VALUES ( :nome, :cognome, :email,:messaggio);";
+            $query = "INSERT INTO Supporto ( Nome, Cognome, Email,Messaggio) VALUE ( :nome, :cognome, :email,:messaggio);";
             $statement = $pdo -> prepare($query);
             $result = $statement -> execute($parameters);
-            if (!$statement){
+            if (!$result){
                 die("Qualcosa è andato storto");
             }
             else{
-                echo $statement ->rowCount();
+                header("Location: index.php");
             }
         }
     }

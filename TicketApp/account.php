@@ -49,11 +49,12 @@
             </div>
 
 <?php
-            $query2 = "SELECT Eventi.Descrizione, Eventi.Data, CONCAT(Luoghi.Nome, ', ', Luoghi.Città) AS Luogo, Eventi.Immagine
+            $query2 = "SELECT Eventi.Descrizione, Eventi.Data, CONCAT(Luoghi.Nome, ', ', Luoghi.Città) AS Luogo, Eventi.Immagine, Biglietti.ID_Biglietto
                        FROM Utenti JOIN Biglietti ON Utenti.ID_Utente = Biglietti.Utente
                        JOIN Eventi ON Biglietti.Evento = Eventi.ID_Evento
                        JOIN Luoghi ON Eventi.Luogo = Luoghi.ID_Luogo
-                       WHERE Utenti.ID_Utente = ?;";
+                       WHERE Utenti.ID_Utente = ?
+                       ORDER BY Eventi.Data DESC;";
             $statement = $pdo -> prepare($query2);
             $result = $statement -> execute((array)$userData[0]['ID_Utente']);
 
@@ -79,9 +80,10 @@
                                         <div class="col-md-8 d-flex align-items-center">
                                             <div class="card-body d-flex justify-content-between align-items-center w-100">
                                                 <div>
-                                                    <h5 class="card-title"><?= $evento['Descrizione'] ?></h5>
-                                                    <p class="card-text"><?= $evento['Luogo'] ?></p>
-                                                    <p class="card-text"><?= $evento['Data'] ?></p>
+                                                    <h5 class="card-title fs-6"><strong><?= $evento['Descrizione'] ?></strong></h5>
+                                                    <p class="card-text fs-8"><strong>Numero biglietto: </strong><?=$evento['ID_Biglietto']?></p>
+                                                    <p class="card-text fs-8"><strong>Luogo: </strong><?= $evento['Luogo'] ?></p>
+                                                    <p class="card-text fs-8"><strong>Ora: </strong><?= $evento['Data'] ?></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -97,4 +99,6 @@
             }
         }
     }
+
+    include_once "footer.php";
 ?>
