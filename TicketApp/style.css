@@ -109,6 +109,10 @@ select {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "FontAwesome";
 }
 
+input {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "FontAwesome";
+}
+
 .container-slider{
     padding: 3%;
 }

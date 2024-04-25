@@ -6,10 +6,13 @@
         $parola=$_GET['search'];
 
 
-        $query = "SELECT Eventi.Descrizione, Eventi.Prezzo, Eventi.ID_Evento
-                            from eventi
-                                     join categoriaeventi on eventi.Categoria = categoriaeventi.ID_Categoria
-                            where Eventi.Descrizione like '%$parola%';";
+        $query = "SELECT * FROM Eventi
+                  JOIN CategoriaEventi ON Eventi.Categoria = CategoriaEventi.ID_Categoria
+                  JOIN Luoghi ON Eventi.Luogo = Luoghi.ID_Luogo
+                  WHERE Eventi.Descrizione LIKE '%$parola%' 
+                  OR Luoghi.Città LIKE '%$parola%' 
+                  OR Luoghi.Nome LIKE '%$parola%'
+                  OR CategoriaEventi.Descrizione_Categoria LIKE '%$parola%';";
         $statement = $pdo -> query($query);
         $eventi = $statement -> fetchAll();
 

@@ -8,9 +8,9 @@ if(!empty($_GET)){
         <?php
         if(!empty($pdo)){
             $query = "SELECT * FROM Eventi 
-              JOIN categoriaeventi ON Eventi.Categoria = categoriaeventi.ID_Categoria
-              JOIN luoghi ON Eventi.Luogo = luoghi.ID_Luogo
-              WHERE Eventi.ID_Evento = " . $_GET["id"] . ";";
+                      JOIN categoriaeventi ON Eventi.Categoria = categoriaeventi.ID_Categoria
+                      JOIN luoghi ON Eventi.Luogo = luoghi.ID_Luogo
+                      WHERE Eventi.ID_Evento = " . $_GET["id"] . ";";
             $statement = $pdo -> query($query);
             if ($statement){
                 $resultsEventi = $statement -> fetchAll();
