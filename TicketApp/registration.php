@@ -33,7 +33,7 @@
                     <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password">
                 </div>
                 <div class="form-group m-4">
-                    <input type="password" class="form-control" name="confirm_password" id="confirm_password" value="" placeholder="Confirm Password">
+                    <input type="password" class="form-control" name="confirm_password" id="confirm_password" value="" placeholder="Conferma Password">
                 </div>
                 <div class="form-btn m-2">
                     <input type="submit" class="btn btn-primary" name="submit" value="Registrati">
@@ -63,7 +63,7 @@
             array_push($errors, "Email non valida");
         }
         if(strlen($password) < 8){
-            array_push($errors, "La password deve contenere almemo di 8 caratteri");
+            array_push($errors, "La password deve contenere almeno 8 caratteri");
         }
 
         $duplicate = $pdo -> query("SELECT * FROM Utenti WHERE Username = '$username' OR Email = '$email';");

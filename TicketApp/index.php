@@ -18,7 +18,7 @@
             else{
                 $eventiConsigliati = $statement -> fetchAll();
                 ?>
-                <h1>Eventi Consigliati</h1>
+                <h1>Eventi</h1>
                 <?php
                 foreach ($eventiConsigliati as $evento){
                 ?>
