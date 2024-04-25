@@ -82,8 +82,8 @@ if(!isset($_SESSION['user'])){
             $result = $statement->execute(['new_email' => $newEmail, 'email' => $email]);
 
             if ($result){
-                echo "<div class='text-center alert alert-success'>Email cambiata con successo</div>";
-                echo "<a class='btn btn-primary' href='account.php'>Torna all'account</a>";
+                echo "<div class='container text-center alert alert-success w-25 mt-2'>Email cambiata con successo</div>";
+                echo "<a class='text-center btn btn-primary' href='account.php'>Torna all'account</a>";
             }
             else{
                 echo "<div class='container text-center alert alert-danger'>Si è verificato un errore durante l'aggiornamento dell'email</div>";
@@ -91,7 +91,6 @@ if(!isset($_SESSION['user'])){
         }
     }
     ?>
-    </section>
+</section>
 </body>
 </html>
-
