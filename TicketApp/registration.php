@@ -13,9 +13,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="checkPassword.js" defer></script>
     <title>Registrazione</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div class="container text-center w-25">
+    <div class="container-registration text-center w-25">
         <h2>Registrazione</h2>
             <form method="post" action="" autocomplete="off">
                 <div class="form-group m-4">

@@ -8,6 +8,57 @@ html, body{
     height: auto;
 }
 
+/* FOOTER */
+.icon {
+    width: 32px;
+    height: 32px;
+    background-image: url('images/arancioBianco.png');
+    background-size: cover;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+ .custom-footer {
+     /*padding-top: 1%;*/
+     background-color: #FD8034;
+     color: white;
+     border-top: 2px white solid;
+ }
+
+.custom-footer a {
+    background-color: #FD8034;
+    color: white;
+}
+
+.custom-footer a:hover {
+    color: black;
+}
+
+.custom-footer .bi {
+    color: white;
+    margin: 0 10px;
+}
+
+.custom-footer .bi:hover{
+    color: black;
+    margin: 0 10px;
+}
+
+.custom-footer p{
+    color: white;
+}
+
+.custom-footer p:hover{
+    color: black;
+}
+
+.social-div{
+    background-color: #FD8034;
+    border-top: 2px white solid;
+}
+
+/* NAVBAR */
 .navbar .nav-link {
     color: white;
 }
@@ -19,17 +70,16 @@ html, body{
 .navbar {
     background-color: #FD8034;
     color: white;
-    border-bottom: 1px solid white;
+    border-bottom: 2px white solid;
 }
 
 .navbar .nav-item {
-    color: white;
+    color: #343a40;
     padding: 0.5rem 1rem;
 }
 
 .navbar .nav-item.home {
     font-weight: bold;
-    color: white;
 }
 
 .navbar .form-control {
@@ -37,6 +87,7 @@ html, body{
     color: black;
 }
 
+/* ACCOUNT */
 .container-account {
     max-width: 600px;
     margin: 50px auto;
@@ -54,6 +105,8 @@ html, body{
 .info-item {
     margin-bottom: 15px;
 }
+
+/* BOTTONI */
 .btn-outline-light {
     text-decoration: none;
     border-radius: 4px;
@@ -66,8 +119,7 @@ html, body{
     color: #FD8034;
 }
 
-/*  STILE PAGINA HELP.PHP  */
-
+/*  HELP  */
 .container-help {
     width: 80%;
     margin: 20px auto;
@@ -96,8 +148,8 @@ p {
     margin-bottom: 5px;
     color: #333;
 }
-.form-group input[type="text"],
-.form-group input[type="email"],
+.form-group input,
+.form-group input,
 .form-group textarea {
     width: 100%;
     padding: 10px;
@@ -119,6 +171,7 @@ p {
     background-color: #0056b3;
 }
 
+/* ORDINAMENTO */
 select {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "FontAwesome";
 }
@@ -127,6 +180,7 @@ input {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "FontAwesome";
 }
 
+/* SLIDER */
 .container-slider{
     padding: 3%;
 }
@@ -180,12 +234,6 @@ input {
     right: -2.5%;
 }
 
-.container-prodotto {
-    padding: 10px;
-    display: inline-flex;
-    justify-content: left;
-}
-
 .imgSwiper {
     height: 260px;
     /*max-height: 260px;*/
@@ -195,12 +243,11 @@ input {
     border-radius: 10px;
 }
 
-.imgCategoria {
-    height: auto;
-    max-height: 200px;
-    width: 100%;
-    max-width: 350px;
-    object-fit: cover;
+/* PRODOTTO */
+.container-prodotto {
+    padding: 10px;
+    display: inline-flex;
+    justify-content: left;
 }
 
 .imgProdotto {
@@ -211,6 +258,16 @@ input {
     object-fit: cover;
     border: black 2px solid;
     margin-left: 6%;
+}
+
+
+/* CATEGORIA */
+.imgCategoria {
+    height: auto;
+    max-height: 200px;
+    width: 100%;
+    max-width: 350px;
+    object-fit: cover;
 }
 
 .card-body {
@@ -231,6 +288,45 @@ input {
 }
 
 a{
-    text-decoration: none;
+
     color: black;
+}
+
+/* PRIVACY */
+.privacy-page {
+    margin-top: -50px;
+    margin-bottom: -20px;
+    background-color: #FD8034;
+    color: white;
+    padding: 2%;
+}
+
+.privacy-page a,
+.privacy-page p,
+.privacy-page h1{
+    color: white;
+}
+
+/* REGISTRAZIONE */
+.container-registration {
+    background-color: #fff;
+    color: #FD8034;
+    border: 1px #FD8034 solid;
+    padding: 20px;
+    border-radius: 10px;
+    margin: auto;
+    max-width: 400px;
+    margin-top: 1%;
+}
+
+.container-registration p,
+.container-registration a{
+    color: #FD8034;
+}
+
+.alert-danger {
+    background-color: #FD8034;
+    color: white;
+    border-color: #FD8034;
+    margin-top: 0.5%;
 }

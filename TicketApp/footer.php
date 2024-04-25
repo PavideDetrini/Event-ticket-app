@@ -16,17 +16,17 @@ if (!empty($pdo)) {
 ?>
 
 
-<footer class="text-center text-lg-start bg-body-tertiary text-muted">
-    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-    </section>
-
+<footer class="text-center custom-footer">
     <section>
-        <div class="container text-center text-md-start mt-5">
-            <div class="row mt-3">
-                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        WaveTickets
-                    </h6>
+        <div class="container text-start mt-5">
+            <div class="row mt-2">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 mt-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="icon me-2"></div>
+                        <h6 class="text-uppercase fw-bold mb-0">
+                            WaveTickets
+                        </h6>
+                    </div>
                     <p>
                         Scatena l'onda di divertimento con WaveTickets!<br>
                         Scopri una vasta gamma di attività, concerti, mostre e molto altro ancora, tutto a portata di clic.<br>
@@ -34,7 +34,7 @@ if (!empty($pdo)) {
                     </p>
                 </div>
 
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 mt-1">
                     <h6 class="text-uppercase fw-bold mb-4">
                         Prodotti
                     </h6>
@@ -51,38 +51,34 @@ if (!empty($pdo)) {
                         }
                     }
                     ?>
-
                 </div>
 
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 mt-1">
                     <h6 class="text-uppercase fw-bold mb-4">
                         Link utili
                     </h6>
                     <p>
-                        <a href="#" class="text-reset">Impostazioni</a>
-                    </p>
-                    <p>
-                        <a href="#" class="text-reset">Ordini</a>
-                    </p>
-                    <p>
                         <a href="help.php" class="text-reset">Supporto</a>
                     </p>
-                </div>
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                    <h6 class="text-uppercase fw-bold mb-4">Contatti</h6>
-                    <p><i class="bi bi-house-door-fill me-3"></i> New York, NY 10012, US</p>
                     <p>
-                        <i class="bi bi-envelope-fill me-3"></i>
-                        EventiNow@isisfacchinetti.edu.it
+                        <a href="privacy.php" class="text-reset">Privacy</a>
                     </p>
-                    <p><i class="bi bi-telephone-fill me-3"></i> + 01 234 567 88</p>
-                    <p><i class="bi bi-printer-fill me-3"></i> + 01 234 567 89</p>
+                    <p>
+                        <a href="https://github.com/PavideDetrini/Event-ticket-app" class="text-reset">Versioni</a>
+                    </p>
+                </div>
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 mt-1">
+                    <h6 class="text-uppercase fw-bold mb-4">Contatti</h6>
+                    <p><i class="bi bi-house-door-fill me-3"></i>New York, NY 10012, US</p>
+                    <p><i class="bi bi-envelope-fill me-3"></i>WaveTickets@isisfacchinetti.edu.it</p>
+                    <p><i class="bi bi-telephone-fill me-3"></i>+39 012-345-6789</p>
+                    <p><i class="bi bi-printer-fill me-3"></i>+39 987-654-3210</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    <div class="text-center p-4 social-div">
         <i class="bi bi-facebook"></i>
         <i class="bi bi-instagram"></i>
         <i class="bi bi-tiktok"></i>
