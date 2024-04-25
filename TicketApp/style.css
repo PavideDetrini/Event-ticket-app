@@ -185,9 +185,7 @@ input {
     max-height: 200px;
     width: 100%;
     max-width: 350px;
-    padding-top: 25px;
     object-fit: cover;
-    /*border: black 1px solid;*/
 }
 
 .imgProdotto {
