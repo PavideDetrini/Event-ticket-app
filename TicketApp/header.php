@@ -35,7 +35,7 @@
                     foreach ($row as $descrizione){
                         ?>
                 <li class="nav-item">
-                    <a href="#" class="nav-link"><?= $descrizione?></a>
+                    <a href="categoria.php?categoria=<?= $descrizione?>" class="nav-link"><?= $descrizione?></a>
                 </li>
                 <?php
                     }
