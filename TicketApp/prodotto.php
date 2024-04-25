@@ -4,7 +4,7 @@ require "Database\DB_connection.php";
 if(!empty($_GET)){
     ?>
     <div class="container-prodotto">
-        <!-- <img src="images/default.jpg" width="600" height="337"> -->
+        <img src="images/default.jpg" width="600" height="337">
         <?php
         if(!empty($pdo)){
             $query = "SELECT * FROM Eventi 
@@ -25,7 +25,7 @@ if(!empty($_GET)){
 
             <?php
 
-            $queryCategoria = "SELECT * FROM Eventi WHERE Categoria = " . $resultsEventi[0]["Categoria"] . ";";
+            $queryCategoria = "SELECT * FROM Eventi WHERE Categoria = " . $resultsEventi[0]["Categoria"] . " AND Eventi.ID_Evento != " . $_GET["id"] . ";";
             $statement = $pdo -> query($queryCategoria);
             if ($statement){
                 $resultsCategoria = $statement -> fetchAll();
