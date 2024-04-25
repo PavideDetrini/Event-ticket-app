@@ -30,7 +30,7 @@ if(isset($_GET['sort'])){
     $scelta=$_GET['sort'];
     switch ($scelta){
         case 'nomeAsc':
-            $query = "SELECT Eventi.Descrizione, Eventi.Prezzo, Eventi.ID_Evento
+            $query = "SELECT Eventi.Descrizione, Eventi.Prezzo, Eventi.ID_Evento, Eventi.Immagine
                         from eventi
                                  join categoriaeventi on eventi.Categoria = categoriaeventi.ID_Categoria
                         where CategoriaEventi.Descrizione_Categoria like '$var'
@@ -39,7 +39,7 @@ if(isset($_GET['sort'])){
             $eventiOrdinati = $statement -> fetchAll();
             break;
         case 'nomeDesc':
-            $query = "SELECT Eventi.Descrizione, Eventi.Prezzo, Eventi.ID_Evento
+            $query = "SELECT Eventi.Descrizione, Eventi.Prezzo, Eventi.ID_Evento, Eventi.Immagine
                         from eventi
                                  join categoriaeventi on eventi.Categoria = categoriaeventi.ID_Categoria
                         where CategoriaEventi.Descrizione_Categoria like '$var'
@@ -48,7 +48,7 @@ if(isset($_GET['sort'])){
             $eventiOrdinati = $statement -> fetchAll();
             break;
         case 'prezzoAsc':
-            $query = "SELECT Eventi.Descrizione, Eventi.Prezzo, Eventi.ID_Evento
+            $query = "SELECT Eventi.Descrizione, Eventi.Prezzo, Eventi.ID_Evento, Eventi.Immagine
                         from eventi
                         join categoriaeventi on eventi.Categoria = categoriaeventi.ID_Categoria
                         where CategoriaEventi.Descrizione_Categoria like '$var'
@@ -58,7 +58,7 @@ if(isset($_GET['sort'])){
             break;
 
         case 'prezzoDesc':
-            $query = "SELECT Eventi.Descrizione, Eventi.Prezzo, Eventi.ID_Evento
+            $query = "SELECT Eventi.Descrizione, Eventi.Prezzo, Eventi.ID_Evento, Eventi.Immagine
                         from eventi
                         join categoriaeventi on eventi.Categoria = categoriaeventi.ID_Categoria
                         where CategoriaEventi.Descrizione_Categoria like '$var'
@@ -72,7 +72,7 @@ if(isset($_GET['sort'])){
     foreach ($eventiOrdinati as $evento){
         ?>
         <div>
-            <img src="images\default.jpg">
+            <img class="imgCategoria" src="<?= $evento['Immagine'] ?>">
             <a  href="prodotto.php?id=<?=$evento['ID_Evento']?>"><?= $evento['Descrizione'] . ' ' .  $evento['Prezzo']?>€</a>
         </div>
         <?php
@@ -81,7 +81,7 @@ if(isset($_GET['sort'])){
 }
 
 if (!empty($pdo)) {
-    $query = "SELECT Eventi.Descrizione, Eventi.Prezzo, Eventi.ID_Evento
+    $query = "SELECT Eventi.Descrizione, Eventi.Prezzo, Eventi.ID_Evento, Eventi.Immagine
         from eventi
         join categoriaeventi on eventi.Categoria = categoriaeventi.ID_Categoria
         where CategoriaEventi.Descrizione_Categoria like '$var';";
@@ -95,7 +95,7 @@ if (!empty($pdo)) {
         foreach ($eventi as $evento){
             ?>
             <div>
-                <img src="images\default.jpg">
+                <img class="imgCategoria" src="<?= $evento['Immagine'] ?>">
                 <a  href="prodotto.php?id=<?=$evento['ID_Evento']?>"><?= $evento['Descrizione'] . ' ' .  $evento['Prezzo']?>€</a>
             </div>
             <?php

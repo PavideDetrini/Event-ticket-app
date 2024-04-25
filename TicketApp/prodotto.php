@@ -4,7 +4,7 @@ require "Database\DB_connection.php";
 if(!empty($_GET)){
     ?>
     <div class="container-prodotto">
-        <img src="images/default.jpg" width="600" height="337">
+        <!-- <img src="images/default.jpg" width="600" height="337"> -->
         <?php
         if(!empty($pdo)){
             $query = "SELECT * FROM Eventi 
@@ -15,6 +15,15 @@ if(!empty($_GET)){
             if ($statement){
                 $resultsEventi = $statement -> fetchAll();
             }
+
+            foreach ($resultsEventi as $evento){
+                $linkImmagine=$evento['Immagine'];
+            }
+
+            ?>
+            <img  id="imgProdotto" src="<?= $linkImmagine ?>">
+
+            <?php
 
             $queryCategoria = "SELECT * FROM Eventi WHERE Categoria = " . $resultsEventi[0]["Categoria"] . ";";
             $statement = $pdo -> query($queryCategoria);
@@ -63,7 +72,7 @@ if(!empty($_GET)){
                     foreach ($resultsCategoria as $evento){
                         ?>
                         <div class="owl-item">
-                            <img src="images\default.jpg">
+                            <img class="imgSwiper"  src="<?= $evento['Immagine'] ?>">
                             <a href="prodotto.php?id=<?=$evento['ID_Evento']?>"><?= $evento['Descrizione'] . ' ' .  $evento['Prezzo']?>€</a>
                         </div>
                         <?php
