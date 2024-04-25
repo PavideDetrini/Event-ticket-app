@@ -465,11 +465,21 @@ input {
 
 .imgCarrello{
     height: auto;
-    max-height: 200px;
+    max-height: 140px;
     width: 100%;
-    max-width: 350px;
+    max-width: 290px;
     object-fit: cover;
-    border: 1px black solid;
+    border-right: 1px black solid;
+}
+
+.imgCarrelloLog{
+    height: auto;
+    max-height: 140px;
+    width: 100%;
+    max-width: 290px;
+    object-fit: cover;
+    border-right: 1px black solid;
+    border-left: 1px black solid;
 }
 
 .div-acquisto{

@@ -23,13 +23,13 @@ if(isset($_SESSION['user'])){
             if($statement2)
                 $resultsEvent = $statement2 -> fetchAll();
             ?>
-            <div class="card mb-3 ms-2 me-2">
+            <div class="card mb-3 ms-2 me-2 border-dark">
                 <div class="row g-0">
                     <div class="col-md-1 align-self-center ms-5">
                         <input class="checkbox-cart" id="checkbox_<?=$item['Evento']?>" type="checkbox" name="acquisti[<?=$item["Evento"]?>]">
                     </div>
                     <div class="col-md-2 align-self-center p-0">
-                        <img src="<?=$resultsEvent[0]["Immagine"] ?>" class="img-fluid rounded-start fixed-image imgCarrello" alt="<?=$resultsEvent[0]["Descrizione"] ?>">
+                        <img src="<?=$resultsEvent[0]["Immagine"] ?>" class="img-fluid fixed-image imgCarrelloLog" alt="<?=$resultsEvent[0]["Descrizione"] ?>">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body d-flex justify-content-between">
@@ -42,7 +42,7 @@ if(isset($_SESSION['user'])){
                                     <input type="number" id="number_<?=$item['Evento']?>" name="acquisti[<?=$item["Evento"]?>]" class="form-control" value="1" min="1" max="<?=$resultsEvent[0]["Numero_Posti_Disponibili"]?>">
                                 </div>
                                 <div class="col-md-6">
-                                    <button class="elimina-cart btn btn-dange" type="button" data-evento="<?=$item['Evento']?>">Rimuovi dal Carrello</button>
+                                    <button class="elimina-cart btn btn-danger" type="button" data-evento="<?=$item['Evento']?>">Rimuovi dal Carrello</button>
                                 </div>
                             </div>
                         </div>
@@ -80,17 +80,18 @@ if(isset($_SESSION['user'])){
             </form>
             <?php
             foreach ($_SESSION["NotLog"] as $item){
-                $queryEvento = "SELECT Descrizione, Numero_Posti_Disponibili, Immagine FROM Eventi WHERE ID_Evento = ?";
+                $queryEvento = "SELECT Descrizione, Numero_Posti_Disponibili, Immagine, Prezzo FROM Eventi WHERE ID_Evento = ?";
                 $statement3 = $pdo -> prepare($queryEvento);
                 $statement3 -> execute([$item]);
                 $resultsEvent = $statement3 -> fetchAll();
                 ?>
-                <div class="container-cart row align-items-center">
-                    <div class="col-md-4">
-                        <img class="img-cart img-thumbnail" src="<?=$resultsEvent[0]["Immagine"] ?>" alt="Immagine Evento">
+                <div class="container-cart row align-items-center border border-dark rounded mb-3 ms-2 me-2">
+                    <div class="col-md-4 p-0">
+                        <img class="img-fluid rounded-start fixed-image imgCarrello" src="<?=$resultsEvent[0]["Immagine"] ?>" alt="Immagine Evento">
                     </div>
                     <div class="col-md-8">
-                        <h4>Biglietto per: <?=$resultsEvent[0]["Descrizione"] ?></h4>
+                        <h4 class="card-title">Biglietto per: <?=$resultsEvent[0]["Descrizione"] ?></h4>
+                        <p class="card-text">Prezzo: <?= $resultsEvent[0]['Prezzo'] ?>€</p>
                     </div>
                 </div>
                 <?php

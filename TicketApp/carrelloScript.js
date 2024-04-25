@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
     buttons.forEach(button => {
     button.addEventListener('click', function() {
     const eventoId = this.getAttribute('data-evento');
-    const container = document.getElementById('checkbox_' + eventoId).closest('.container-cart');
+    const container = document.getElementById('checkbox_' + eventoId).closest('.card');
     container.remove();
     //ajax delete from carrello where
     xhttp = new XMLHttpRequest();
@@ -69,5 +69,3 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 });
 });
-
-

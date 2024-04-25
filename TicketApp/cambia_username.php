@@ -8,15 +8,15 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="html-form">
 <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet" type="text/css">
     <title>Cambia Username</title>
 </head>
-<body>
-<div class="container text-center w-25 mx-auto">
+<body class="body-form">
+<div class="container-form text-center w-25 mx-auto">
     <h2>Cambia Username</h2>
     <form method="post" action="" autocomplete="off">
         <div class="form-group m-4">

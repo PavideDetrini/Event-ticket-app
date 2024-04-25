@@ -12,6 +12,7 @@ if(isset($_SESSION['user'])){
                   ORDER BY Biglietti_Venduti DESC LIMIT 9;";
 
         $statement = $pdo->query($query);
+
         if(!$statement){
             echo "ERROR";
         }

@@ -61,14 +61,31 @@ if (!empty($pdo)) {
                 </li>
                 <?php
                 if(isset($_SESSION['user'])){
+                    if(!empty($pdo)){
+                        $carrello = "SELECT COUNT(*) AS numCarrello FROM Carrello WHERE Carrello.Utente = " . $_SESSION['user'] . ";";
+                        $statement2 = $pdo -> query($carrello);
+
+                        if(!$statement2){
+                            echo "ERROR";
+                        }
+                        else{
+                            $numCarrello = $statement2 -> fetchAll();
+                        }
+                    }
                     ?>
                     <li class="nav-item">
                         <a href="carrello.php" class="nav-link position-relative">
                             <i class="bi bi-cart"></i>
                             CARRELLO
-                            <span class="position-absolute top-75 translate-middle badge rounded-pill bg-primary bg-white">
-                                5
-                            </span>
+                            <?php
+                                if($numCarrello[0]["numCarrello"] > 0){
+                            ?>
+                                    <span class="position-absolute top-75 translate-middle badge rounded-pill bg-primary bg-white">
+                                        <?= $numCarrello[0]["numCarrello"]?>
+                                    </span>
+                            <?php
+                                }
+                            ?>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -91,9 +108,15 @@ if (!empty($pdo)) {
                         <a href="carrello.php" class="nav-link position-relative">
                             <i class="bi bi-cart"></i>
                             CARRELLO
-                            <span class="position-absolute top-75 translate-middle badge rounded-pill bg-primary bg-white">
-                                5
-                            </span>
+                            <?php
+                                if(isset($_SESSION["NotLog"])){
+                            ?>
+                                    <span class="position-absolute top-75 translate-middle badge rounded-pill bg-primary bg-white">
+                                        <?=count($_SESSION["NotLog"])?>
+                                    </span>
+                            <?php
+                                }
+                            ?>
                         </a>
                     </li>
                     <li class="nav-item">
