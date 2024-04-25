@@ -8,9 +8,8 @@
     }
 
     if(!empty($pdo)){
-        $parameters['username'] = $_SESSION['username'];
-        $parameters['email'] = $_SESSION['email'];
-        $query = "SELECT * FROM Utenti WHERE Username LIKE :username OR Email LIKE :email;";
+        $parameters['id'] = $_SESSION['user'];
+        $query = "SELECT * FROM Utenti WHERE ID_Utente LIKE :id;";
         $statement = $pdo -> prepare($query);
         $result = $statement -> execute($parameters);
 

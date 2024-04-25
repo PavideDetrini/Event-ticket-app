@@ -51,7 +51,7 @@
             $parameters['username'] = $username;
             $parameters['email'] = $username;
 
-            $query = "SELECT Username, Email, Password FROM Utenti WHERE Username LIKE :username OR Email LIKE :email;";
+            $query = "SELECT * FROM Utenti WHERE Username LIKE :username OR Email LIKE :email;";
             $statement = $pdo -> prepare($query);
             $result = $statement -> execute($parameters);
 
@@ -63,9 +63,7 @@
                 if(count($userData) > 0){
                     if(password_verify($password, $userData[0]['Password'])){
                         session_start();
-                        $_SESSION['user'] = "yes";
-                        $_SESSION['username'] = $userData[0]['Username'];
-                        $_SESSION['email'] = $userData[0]['Email'];
+                        $_SESSION['user'] = $userData[0]['ID_Utente'];
                         header("Location: index.php");
                         exit();
                     }
