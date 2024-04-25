@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Registrazione</title>
+</head>
+<body>
+    <div class="container text-center w-25">
+        <h2>Registrazione</h2>
+            <form method="post" action="" autocomplete="off">
+                <div class="form-group m-4">
+                    <input type="text" class="form-control" name="nome" id="nome" value="" placeholder="Nome">
+                </div>
+                <div class="form-group m-4">
+                    <input type="text" class="form-control" name="cognome" id="cognome" value="" placeholder="Cognome">
+                </div>
+                <div class="form-group m-4">
+                    <input type="text" class="form-control" name="username" id="username" value="" placeholder="Username">
+                </div>
+                <div class="form-group m-4">
+                    <input type="email" class="form-control" name="email" id="email" value="" placeholder="Email">
+                </div>
+                <div class="form-group m-4">
+                    <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password">
+                </div>
+                <div class="form-group m-4">
+                    <input type="password" class="form-control" name="confirm_password" id="confirm_password" value="" placeholder="Confirm Password">
+                </div>
+                <div class="form-btn m-2">
+                    <input type="submit" class="btn btn-primary" name="submit" value="Registrati">
+                </div>
+            </form>
+    </div>
+</body>
+</html>
+
+<?php
+    require_once 'DB_connection.php';
+
+    if(isset($_POST['submit'])){
+        $nome = $_POST['nome'];
+        $cognome = $_POST['cognome'];
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $confirm_password = $_POST['confirm_password'];
+
+        $errors = array();
+        if(empty($nome) OR empty($cognome) OR empty($username) OR empty($email) OR empty($password) OR empty($confirm_password)){
+            array_push($errors, "Tutti i campi sono richiesti");
+        }
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            array_push($errors, "Email non valida");
+        }
+        if(strlen($password) < 8){
+            array_push($errors, "La password deve contenere almemo di 8 caratteri");
+        }
+
+        $duplicate = $pdo -> query("SELECT * FROM Utenti WHERE Username = '$username' OR Email = '$email';");
+        if($duplicate -> rowCount() > 0){
+            array_push($errors, "Username e email già esistenti");
+        }
+        if($password !== $confirm_password){
+            array_push($errors, "Le passwords non corrispondono");
+        }
+
+        if(count($errors) > 0){
+            foreach ($errors as $value){
+                echo "<div class='container text-center w-25 alert alert-danger'>$value</div>";
+            }
+        }
+        else{
+            if(!empty($pdo)){
+                $parameters['username'] = $username;
+                $parameters['password'] = $password;
+                $parameters['nome'] = $nome;
+                $parameters['cognome'] = $cognome;
+                $parameters['email'] = $email;
+                $query = "INSERT INTO Utenti (Username, Password, Nome, Cognome, Email) VALUES (:username, :password, :nome, :cognome, :email);";
+                $statement = $pdo -> prepare($query);
+                $result = $statement -> execute($parameters);
+                if (!$statement){
+                    die("Qualcosa è andato storto");
+                }
+                else{
+                    echo "<div class='container text-center w-25 alert alert-success'>Registrazione completata</div>";
+                }
+            }
+        }
+    }
+?>
