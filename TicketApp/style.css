@@ -161,3 +161,14 @@ select {
 .owl-next i {
     right: -2.5%;
 }
+
+.container-prodotto {
+    padding: 10px;
+    display: inline-flex;
+    justify-content: left;
+}
+.testo {
+    max-width: 100%;
+    max-height: 100%;
+    padding-left: 6px;
+}
