@@ -67,7 +67,7 @@
                         $_SESSION['username'] = $userData[0]['Username'];
                         $_SESSION['email'] = $userData[0]['Email'];
                         header("Location: index.php");
-                        die();
+                        exit();
                     }
                     else{
                         echo "<div class='container text-center alert alert-danger'>Password non corretta</div>";

@@ -94,6 +94,8 @@
                 }
                 else{
                     echo "<div class='container text-center w-25 alert alert-success'>Registrazione completata</div>";
+                    header("Location: login.php");
+                    exit();
                 }
             }
         }
