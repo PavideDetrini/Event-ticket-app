@@ -1,5 +1,5 @@
 <?php
-require_once "DB_connection.php";
+require_once "Database\DB_connection.php";
 
 if (!empty($pdo)) {
     $query = "SELECT Descrizione_Categoria  FROM CategoriaEventi;";

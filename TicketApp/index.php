@@ -1,6 +1,6 @@
 <?php
 include_once "header.php";
-require "db_connection.php";
+require_once "Database\DB_connection.php";
 
 $arrayCategorie = array();
 if(isset($_SESSION['user'])){

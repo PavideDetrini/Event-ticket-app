@@ -49,7 +49,7 @@ if(!isset($_SESSION['user'])){
 
 
 <?php
-require_once 'DB_connection.php';
+require_once 'Database\DB_connection.php';
 
 if(isset($_POST['submit'])){
     $nome = $_POST['nome'];

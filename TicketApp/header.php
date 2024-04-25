@@ -1,5 +1,5 @@
 <?php
-require_once "DB_connection.php";
+require_once "Database\DB_connection.php";
 session_start();
 
 if (!empty($pdo)) {

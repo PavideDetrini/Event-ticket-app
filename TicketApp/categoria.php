@@ -1,6 +1,6 @@
 <?php
 include_once "header.php";
-require_once "DB_connection.php";
+require_once "Database\DB_connection.php";
 $var=$_GET['categoria'];
 ?>
 
