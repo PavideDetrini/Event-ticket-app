@@ -4,7 +4,6 @@ require "Database\DB_connection.php";
 if(!empty($_GET)){
     ?>
     <div class="container-prodotto">
-        <img src="images/default.jpg" width="600" height="337">
         <?php
         if(!empty($pdo)){
             $query = "SELECT * FROM Eventi 

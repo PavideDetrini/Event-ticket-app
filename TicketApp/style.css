@@ -188,12 +188,11 @@ input {
 
 .imgCategoria {
     height: auto;
-    max-height: 250px;
+    max-height: 200px;
     width: 100%;
     max-width: 350px;
-    padding-top: 25px;
     object-fit: cover;
-    /*border: black 1px solid;*/
+    border: black 1px solid;
 }
 
 #imgProdotto {
@@ -204,3 +203,23 @@ input {
     object-fit: cover;
     border: black 2px solid;
 }
+
+
+/**/
+.card-body {
+    display: flex;
+    align-items: center;
+}
+.card-title, .card-text {
+    flex: 1;
+}
+.btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+}
+.card {
+    margin-bottom: 20px;
+}
+

@@ -1,6 +1,6 @@
 <?php
 include_once "header.php";
-require_once "Database\DB_connection.php";
+require_once "Database/DB_connection.php";
 $var = htmlspecialchars($_GET['categoria']);
 ?>
 
@@ -56,13 +56,17 @@ $var = htmlspecialchars($_GET['categoria']);
             <div class="card mb-3">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="<?= $evento['Immagine'] ?>" class="img-fluid rounded-start" alt="<?= $evento['Descrizione'] ?>">
+                        <img src="<?= $evento['Immagine'] ?>" class="img-fluid rounded-start fixed-image" alt="<?= $evento['Descrizione'] ?>">
                     </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $evento['Descrizione'] ?></h5>
-                            <p class="card-text"><?= $evento['Prezzo'] ?>€</p>
-                            <a href="prodotto.php?id=<?= $evento['ID_Evento'] ?>" class="btn btn-primary">Vedi Dettagli</a>
+                    <div class="col-md-8 d-flex align-items-center">
+                        <div class="card-body d-flex justify-content-between align-items-center w-100">
+                            <div>
+                                <h5 class="card-title"><?= $evento['Descrizione'] ?></h5>
+                                <p class="card-text"><?= $evento['Prezzo'] ?>€</p>
+                            </div>
+                            <div class="btn-container">
+                                <a href="prodotto.php?id=<?= $evento['ID_Evento'] ?>" class="btn btn-primary">Vedi Dettagli</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -83,18 +87,16 @@ $var = htmlspecialchars($_GET['categoria']);
                 <div class="card mb-3">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="<?= $evento['Immagine'] ?>" class="img-fluid rounded-start" alt="<?= $evento['Descrizione'] ?>">
+                            <img src="<?= $evento['Immagine'] ?>" class="img-fluid rounded-start imgCategoria" alt="<?= $evento['Descrizione'] ?>">
                         </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <div class="flex-row">
-                                    <div class="col-4">
-                                        <h5 class="card-title"><?= $evento['Descrizione'] ?></h5>
-                                        <p class="card-text"><?= $evento['Prezzo'] ?>€</p>
-                                    </div>
-                                    <div class="container-fluid col-8 d-flex flex-column align-items-end flex-column justify-content-center">
-                                        <a href="prodotto.php?id=<?= $evento['ID_Evento'] ?>" class="btn btn-primary">Vedi Dettagli</a>
-                                    </div>
+                        <div class="col-md-8 d-flex align-items-center">
+                            <div class="card-body d-flex justify-content-between align-items-center w-100">
+                                <div>
+                                    <h5 class="card-title"><?= $evento['Descrizione'] ?></h5>
+                                    <p class="card-text"><?= $evento['Prezzo'] ?>€</p>
+                                </div>
+                                <div class="btn-container">
+                                    <a href="prodotto.php?id=<?= $evento['ID_Evento'] ?>" class="btn btn-primary">Vedi Dettagli</a>
                                 </div>
                             </div>
                         </div>
