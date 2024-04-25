@@ -1,8 +1,7 @@
 <?php
-
     $type = 'mysql';
     $server = '127.0.0.1';
-    $db = 'festival';
+    $db = 'eventi';
     $port = '3306';
     $charset = 'utf8mb4';
 
