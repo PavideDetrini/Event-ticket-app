@@ -11,6 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="checkPassword.js" defer></script>
     <title>Registrazione</title>
 </head>
 <body>
@@ -41,6 +42,7 @@
             </form>
         <p>Hai già un account? <a href="login.php">Login</a></p>
     </div>
+    <div class='container text-center w-25 alert alert-danger' id="error"></div>
 </body>
 </html>
 
@@ -62,7 +64,7 @@
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             array_push($errors, "Email non valida");
         }
-        if(strlen($password) < 8){
+        if(!is_string($password) || strlen($password) < 8){
             array_push($errors, "La password deve contenere almeno 8 caratteri");
         }
 
