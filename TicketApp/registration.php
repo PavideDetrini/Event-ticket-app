@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(isset($_SESSION['user'])){
+        header("Location: index.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +38,7 @@
                     <input type="submit" class="btn btn-primary" name="submit" value="Registrati">
                 </div>
             </form>
+        <p>Hai già un account? <a href="login.php">Login</a></p>
     </div>
 </body>
 </html>
@@ -73,7 +81,7 @@
         else{
             if(!empty($pdo)){
                 $parameters['username'] = $username;
-                $parameters['password'] = $password;
+                $parameters['password'] = password_hash($password, PASSWORD_DEFAULT);
                 $parameters['nome'] = $nome;
                 $parameters['cognome'] = $cognome;
                 $parameters['email'] = $email;
